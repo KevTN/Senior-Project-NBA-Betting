@@ -1,0 +1,28 @@
+
+
+to list branches
+git branch
+
+
+
+To switch branches
+git checkout <branch name>
+
+
+(to add work)
+git add .
+
+git commit -m "Added/Removed/Modified <subject>"
+
+git push 
+
+
+To get from server/main
+git pull
+
+
+
+
+
+
+
