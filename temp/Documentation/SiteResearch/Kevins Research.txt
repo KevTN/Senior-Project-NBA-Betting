@@ -1,0 +1,24 @@
+Blog example:
+https://medium.com/
+
+- Has filters that we can filter what category of blogs that the user would want to see
+- Bookmarks and save for later
+- Users can create/write their own story 
+- Not too much flashy things where its hard to navigate
+- Has estimated time it would take to read a blog
+- Includes authors info such as personal website and occupations
+- Login page
+- Subscription service
+- Readers can comment and like the blog posted
+
+Blog example:
+https://ghost.org/explore/
+
+- Has search bar
+- Filter for popularity, trending, new, A-Z (sorting)
+- Explore page is part of home (randomized Blogs)
+- Categories for types of blogs
+- Login page
+- About us page
+- Able to create blogs/advertisments
+- Mailing list (subscription based)

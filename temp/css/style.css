@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather', serif;
+}
+
+/* CSS VARIABLES */
+:root {
+    --blog-primary-color: #D9D9D9;
+    --blog-secondary-color: whitesmoke;
+    --blog-third-color: #333;
+    --blog-primary-text-color: #000000;
+    --blog-secondary-text-color: #fff;
+    --blog-primary-padding: 2em;
+    --blog-primary-margin: 2rem;
+    --blog-section-padding: 1em;
+    /* Dark mode variables go here */
+}
+
+/* General Settings *********************/
+button {
+    border: none;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Header Styling ***********************************/
+header {
+    background-color: var(--blog-primary-color);
+    padding: var(--blog-primary-padding);
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* SVG Settings ***/
+img.logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+img.logo:hover {
+    cursor: pointer;
+}
+
+img.svg-n {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin: 0.3rem;
+}
+
+img.svg-n:hover {
+    cursor: pointer;
+}
+
+h1.p-header {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Main Section Styling *****/
+main {
+    background-color: var(--blog-secondary-color);
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+main aside {
+    position: fixed;
+    top: 30%;
+    right: 0;
+    padding: 0.77rem;
+    transform: translate3d(90%, 0, 0);
+    background-color: var(--blog-secondary-text-color);
+    box-shadow: 0px 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+    transition: transform 400ms cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+main aside:hover {
+    cursor: pointer;
+}
+
+main aside.active {
+    transform: translate3d(0%, 0, 0);
+}
+
+main aside article {
+    position: absolute;
+    top: 40%;
+    left: -10%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    color: var(--blog-secondary-text-color);
+    background-color: royalblue;
+    font-size: 1.3rem;
+    transition: background-color 300ms ease-in-out;
+    z-index: 4;
+}
+
+h5.aside-h5 {
+    font-size: 1.333rem;
+}
+
+/* MAIN Aside Div *************************/
+main aside div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 0.7rem;
+    background-color: var(--blog-secondary-text-color);
+}
+
+button.btn,
+button.sort {
+    background-color: var(--blog-secondary-color);
+    color: var(--blog-primary-text-color);
+    font-size: 18px;
+    text-align: left;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    margin: 0.7rem;
+    transition: background-color 300ms ease-in-out;
+}
+
+button.btn:hover,
+button.sort:hover {
+    background-color: var(--blog-primary-color);
+    cursor: pointer;
+}
+
+/* Section Blog Grid Styling *****************************/
+section.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 60%;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+
+section.blog-grid.sort {
+    flex-direction: column-reverse;
+}
+
+span:after {
+    content: 'Newest to oldest';
+}
+
+span.change:after {
+    content: 'Oldest to newest';
+}
+
+/********** Post Card styling ********/
+article.item {
+    transition: transform 400ms ease;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    padding: 1rem;
+    background-color: var(--blog-secondary-text-color);
+}
+
+article.item img {
+    background-size: cover;
+    background-position: 50% 50%;
+    transform-origin: 50% 100%;
+    width: 100%;
+}
+
+div.blog-title {
+    display: flex;
+    margin-top: 0.8rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+
+div.blog-title h2,
+div.blog-title p {
+    font-size: 20px;
+    color: var(--blog-third-color);
+}
+
+article.blog-title p {
+    padding: 0.33rem;
+}
+
+blockquote.blog-p {
+    color: var(--blog-primary-text-color);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--blog-third-color);
+    margin-bottom: 0.7rem;
+}
+
+a#article-a {
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    margin-top: 0.7rem;
+    color: var(--blog-third-color);
+}
+
+/****************************** Whole Article ************/
+section.whole-article {
+    margin: 2rem auto;
+    width: 60%;
+}
+
+section.whole-article figure {
+    height: 500px;
+    width: 100%;
+}
+
+section.whole-article figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.article-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.33rem;
+    font-weight: 700;
+}
+
+p.last-p {
+    border-bottom: 1px solid #ccc;
+}
+
+p.comment-p {
+    margin-bottom: 1rem;
+}
+
+textarea {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+/* LOGIN.html page styles ************************/
+section.form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+
+form.admin-form {
+    padding: 1rem;
+    min-height: 400px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0px 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px
+}
+
+label {
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+input[type="password"],
+input[type="text"] {
+    border: none;
+    background-color: var(--blog-secondary-color);
+    padding: 0.4rem 0 0.4rem 0;
+    border-radius: 3px;
+    font-size: 18px;
+    margin: 0.4rem;
+}
+
+input[type="submit"] {
+    background-color: #3E68B1;
+    color: var(--blog-secondary-color);
+    border: none;
+    margin: 0;
+    padding: 0.4rem 2rem 0.4rem 2rem;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+/************ Footer styling ***************/
+footer {
+    background-color: var(--blog-primary-color);
+    min-height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer a.f-link {
+    font-size: 1.33rem;
+    color: var(--blog-primary-text-color);
+    font-weight: 700;
+    margin: 0.7rem;
+    text-decoration: none;
+}
+/************* Delete Comment **************/
+.comment-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+}
+
+.comment .message {
+    flex-shrink: 0;
+    max-width: 800px; /* adjust as needed */
+    overflow-wrap: break-word;
+    margin-right: 10px;
+    white-space: pre-wrap; /* preserve new lines and whitespace */
+}
+
+.name {
+    white-space: nowrap;
+}
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.message {
+    flex-shrink: 0;
+    max-width: 800px; /* adjust as needed */
+    overflow-wrap: break-word;
+    margin-right: 10px;
+}
+
+.delete-form {
+    display: flex;
+    align-items: flex-start;
+}
+
+.delete-button-trash {
+    background-color: transparent;
+    width: 20px;
+    height: 30px;
+}
+
+
+
+
+/************* Modal Styling **************/
+nav.modal-nav {
+    width: 50%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+a.exit-modal {
+    padding: 0.2rem 1.3rem 0.2rem 1.3rem;
+    border-radius: 3px;
+    background-color: rgb(241, 184, 184);
+}
+
+a.exit-modal:hover {
+    cursor: pointer;
+}
+
+section.modal {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: white;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+section.modal.active {
+    transform: translate3d(0%, 0, 0);
+    z-index: 3;
+}
+
+section.modal h1 {
+    font-size: 1.6rem;
+}
+
+section.modal article.blog-article {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+    width: 50%;
+    overflow-y: scroll;
+}
+
+article.blog-article img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 500ms ease;
+    will-change: transform;
+}
+
+/* This is the loggin delete button css classes */
+/* .active class means user has logged in and it will be added in PHP */
+button.btn-delete.active {
+    display: block;
+}
+
+button.btn-delete {
+    display: none;
+}
+
+
+/* Modal Image container */
+article figure.article-figure {
+    position: relative;
+    height: 400px;
+}
+
+article figure.article-figure img:first-child {
+    z-index: 1;
+}
+
+button.btn-m {
+    padding: 0.3rem 1.3rem 0.3rem 1.3rem;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 1rem;
+    border-radius: 3px;
+}
+
+button.btn-m:hover {
+    cursor: pointer;
+}
+
+p.article-p {
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+/* Fix button border */
+div.invsivible-border {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* Add MOBILE SCREEN MEDIA QUERIES */
+@media (max-width: 600px) {}
