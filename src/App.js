@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useEffect } from 'react';
+import './components/Navbar'
+import Navbar from './components/Navbar';
 //import React from 'react';
 function App() {
   useEffect(() => {
@@ -12,13 +14,8 @@ function App() {
       
         <header>
             <h1>Best Ballers Bets</h1>
+            <Navbar />
         </header>
-
-
-      <p>
-        GROUP 6
-      </p>
-       
 
         <footer>
             <p>Best Ballers Bets(about section and whatever goes here)</p>
