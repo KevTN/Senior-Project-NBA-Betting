@@ -2,21 +2,22 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(0, 3, 50);
-  color: white;
+  background-color: #DEDCAE;
+  color: #000332;
   font-family: 'Depot New';
 }
 
 header {
-  background-color: rgb(255, 80, 0);
-  color: white;
+  background-color: #000332;
+  color: rgb(255, 80, 0);
   text-align: center;
   padding: .25em;
   font-family: 'Arial', sans-serif;}
 
+
 footer {
-  background-color: rgb(255, 80, 0);
-  color: white;
+  background-color: #000332;
+  color: rgb(255, 80, 0);
   font-family: 'Arial', sans-serif;
   text-align: center;
   padding: 1em;
