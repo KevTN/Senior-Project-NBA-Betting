@@ -1,0 +1,7 @@
+
+(starts up local server)
+npm start
+
+
+(needed for react components)
+npm install react-router-dom
