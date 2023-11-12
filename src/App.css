@@ -1,29 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Depot+New&display=swap');
-body {
+body{
   margin: 0;
   padding: 0;
-  background-color: #DEDCAE;
-  color: #000332;
-  font-family: 'Depot New';
-}
-
-header {
-  background-color: #000332;
-  color: rgb(255, 80, 0);
-  text-align: center;
-  padding: .25em;
-  font-family: 'Arial', sans-serif;}
-
-
-footer {
-  background-color: #000332;
-  color: rgb(255, 80, 0);
-  font-family: 'Arial', sans-serif;
-  text-align: center;
-  padding: 1em;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  
-  
 }
