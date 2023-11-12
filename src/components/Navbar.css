@@ -1,0 +1,33 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000332; 
+    color: rgb(255, 80, 0); 
+  }
+  
+  .leftSide {
+    font-size: xx-large; 
+    font-family: Brush Script MT, sans-serif; 
+  }
+  
+  .rightSide {
+
+  }
+  
+  .rightSide a {
+    color: rgb(255, 80, 0); 
+    text-decoration: none; 
+    padding: 0.5rem 1rem; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    font-size: small;
+    font-family: 'Arial', sans-serif; 
+  }
+  
+  .rightSide a:hover {
+    background-color: #b38b79;
+  }
+  
