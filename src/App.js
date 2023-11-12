@@ -1,29 +1,24 @@
 import './App.css';
-import React, { useEffect } from 'react';
-import './components/Navbar'
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Footer from './components/footer'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 //import React from 'react';
 function App() {
-  useEffect(() => {
-    document.title = 'BestBallersBets';
-  }, []);
-  
-  return (
-  
-    <body>
-      
-        <header>
-            <h1>Best Ballers Bets</h1>
-            <Navbar />
-        </header>
+  return <div className="App">
+    <Router>
+    <Navbar />
+    <Routes>
+      <Route path="/" exact component={Home} />
+      </Routes>
+    </Router>
 
-        <footer>
-            <p>Best Ballers Bets(about section and whatever goes here)</p>
-        </footer>
-
-
-    </body>
-  );
+    <Footer />
+  </div>
 }
+  
+  
+  
 
 export default App;
