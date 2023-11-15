@@ -2,18 +2,14 @@ import React from 'react'
 import Footer from '../components/footer'
 import Navbar from '../components/Navbar'
 import TodayTable from '../components/TodayTable'
-import Table from '../components/Table'
-import '../App.css';
 
-function Home() {
+function About() {
   return (
     <div>
-        <Navbar />
-        <TodayTable class="body"/>
-        <Table />
+        <Navbar class="app-navbar"/>
         <Footer />
     </div>
   )
 }
 
-export default Home
+export default About
