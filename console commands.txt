@@ -4,6 +4,8 @@ Download React Instructions
 2. Make a new folder you want the app to be in (recommended on desktop for ease)
 3. Open a terminal in the desired folder
 4. npx create-react-app my-app (creates the app)
-4.npm install react-router-dom (needed for react components)
-5.npm start (starts up local server)
+4. npm install react-router-dom (needed for react components)
+5. npm start (starts up local server)
 
+6. npm install @mui/material @mui/styled-engine-sc styled-components
+(this) is a library we are using for styling
