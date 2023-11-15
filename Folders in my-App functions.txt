@@ -1,0 +1,36 @@
+Folders in Code: 
+
+my-app
+
+
+node_modules -folder (dont touch)
+public -folder dont (touch)
+.gitignore
+package.json
+package-lock.json
+ReadME
+src (only one we are using)
+
+
+
+
+
+assets -> folder
+	-This is where pictures, videos, logos will go
+
+components -> folder
+	-Things that can be re-used
+	-Example nav bar, footer, table
+
+pages -> folder
+	-ReadME
+
+This is where home.js is located 
+This is where we will be primarily coding 
+
+app -CSS FILE sheet (maybe need permission first)
+index.js -Making new pages
+index.cs - Make look pretty (dont touch)
+reportwebvitals -dont touch
+setupTasks - dont touch
+
