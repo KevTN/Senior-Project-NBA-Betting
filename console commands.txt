@@ -1,7 +1,9 @@
+Download React Instructions
 
-(starts up local server)
-npm start
+1. Make sure you have Node.js installed-
+2. Make a new folder you want the app to be in (recommended on desktop for ease)
+3. Open a terminal in the desired folder
+4. npx create-react-app my-app (creates the app)
+4.npm install react-router-dom (needed for react components)
+5.npm start (starts up local server)
 
-
-(needed for react components)
-npm install react-router-dom
