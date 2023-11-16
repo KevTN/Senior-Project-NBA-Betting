@@ -9,3 +9,10 @@ Download React Instructions
 
 6. npm install @mui/material @mui/styled-engine-sc styled-components
 (this) is a library we are using for styling
+
+
+
+if you get errors:
+npm install @emotion/react @emotion/styled
+npm update
+
