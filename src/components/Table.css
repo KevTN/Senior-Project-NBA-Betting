@@ -1,0 +1,45 @@
+.todaygame {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 0px solid #071824;
+  background-color: #1a2c38;
+  border-radius: 0px;
+  padding: 20px;
+}
+
+.tableName {
+  color: white;
+  background-color: #071824;
+  border-radius: 10px;
+  padding: 8px; 
+  font-weight: bold; 
+  font-family: Arial, sans-serif; 
+  font-size: x-large;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0px;
+  
+}
+
+.todaygame th, .todaygame td {
+  border: 0px solid #071824;
+  padding: 8px;
+  text-align: center;
+  background-color: #071824;
+  color: white;
+  
+  
+}
+
+.todaygame th{
+  background-color: #0f212e;
+}
+
+body{
+  background-color: #1a2c38;
+}
+

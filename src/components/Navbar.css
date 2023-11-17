@@ -4,8 +4,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #000332; 
-    color: rgb(255, 80, 0); 
+    background-color: #071824; 
+    color: white; 
   }
   
   .leftSide {
@@ -18,7 +18,7 @@
   }
   
   .rightSide a {
-    color: rgb(255, 80, 0); 
+    color: white; 
     text-decoration: none; 
     padding: 0.5rem 1rem; 
     border-radius: 20px; 
@@ -28,6 +28,6 @@
   }
   
   .rightSide a:hover {
-    background-color: #b38b79;
+    background-color: #1a2c38;
   }
   
