@@ -2,6 +2,8 @@ import React from 'react';
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
+
+
 function Navbar() {
   return (
     <div className="navbar">
