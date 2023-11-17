@@ -11,8 +11,9 @@
   .leftSide {
     font-size: xx-large; 
     font-family: Brush Script MT, sans-serif; 
+
   }
-  
+
   .rightSide {
 
   }
@@ -34,4 +35,7 @@
   .logosize {
     width: 250px;
     height: auto;
+    flex-grow: 1;
+
   }
+

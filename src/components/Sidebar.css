@@ -1,0 +1,48 @@
+/* Sidebar.css */
+
+.sidebar {
+  width: 0;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px; 
+  z-index: 1;
+}
+
+.sidebar.open {
+  width: 290px;
+}
+
+.toggle-btn {
+  font-size: 20px;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  background-color: #071824;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 90px; 
+  color: #fff;
+}
+
+li {
+  padding: 15px;
+  border-bottom: 1px solid #555;
+}
+
+li:hover {
+  background-color: #555;
+}
