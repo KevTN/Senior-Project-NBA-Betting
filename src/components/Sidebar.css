@@ -6,8 +6,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #333;
+  background-color: #071824;
   overflow-x: hidden;
+  
   transition: 0.5s;
   padding-top: 60px; 
   z-index: 1;
@@ -41,6 +42,12 @@ ul {
 li {
   padding: 15px;
   border-bottom: 1px solid #555;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 li:hover {
