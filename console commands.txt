@@ -16,3 +16,7 @@ if you get errors:
 npm install @emotion/react @emotion/styled
 npm update
 
+
+NPM START * how you start 
+
+
