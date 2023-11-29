@@ -1,0 +1,31 @@
+How to edit team pages:
+1. SRC
+2. Pages
+3. Teams
+4. Open .js file in studio code and edit the team page
+
+If you want to add a navbar:
+1. We have pre-made tables/nav-bar
+2. You can use this by:
+	import Navbar from "pathname"
+	-this would be in "components" folder 
+
+	Example: import Navbar from '../../components/Navbar'
+
+If you build a table or sidebar, navbar, or any type of function. Add it into components and then call it from the components folder like the example above. 
+
+Want to save an image?
+SRC -> Images, this folder is dedicated to images
+
+
+Beighlor & Joseph will work on these team pages.
+
+Divided this up: 
+Joseph gets West Coast 
+Beighlor gets East Coast
+
+*don't have to worry about players for now. This is just for making the team pages style look nice and getting familiar with react/javascript/css/mui/components folder/ 
+
+
+
+
