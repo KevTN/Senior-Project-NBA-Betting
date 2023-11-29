@@ -1,0 +1,28 @@
+Download React Instructions
+
+1. Make sure you have Node.js installed-
+2. Make a new folder you want the app to be in (recommended on desktop for ease)
+3. Open a terminal in the desired folder
+4. npx create-react-app my-app (creates the app)
+4. npm install react-router-dom (needed for react components)
+5. npm start (starts up local server)
+
+6. npm install @mui/material @mui/styled-engine-sc styled-components
+(this) is a library we are using for styling
+
+
+
+if you get errors:
+npm install @emotion/react @emotion/styled
+npm update
+
+How to get everything up to date before starting
+1. git pull main origin
+2. copy src from senior project folder
+3. paste src to my-app
+4. make sure my-app src is the new updated. version from senior project folder
+
+How to start up react
+1. go to my-app
+2. open terminal
+3. NPM START
