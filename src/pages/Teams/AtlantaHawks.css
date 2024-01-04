@@ -1,0 +1,22 @@
+/* AtlantaHawks.css */
+
+.team-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0c0c0c; /* Add background color as needed */
+  padding: 10px;
+}
+
+.team-logo {
+  max-width: 100px; /* Adjust the size as needed */
+  max-height: 100px; /* Adjust the size as needed */
+  margin-bottom: 10px; /* Add space between logo and team name */
+}
+
+.team-name {
+  color: #fff; /* Add text color as needed */
+  font-size: 50px; /* Adjust the size as needed */
+  font-weight: bold; /* Bold the text */
+  margin: 0; /* Remove default margin */
+}

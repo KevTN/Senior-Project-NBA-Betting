@@ -1,0 +1,27 @@
+/* TeamStatsTable.css */
+
+/* Table Title */
+.table-title {
+    color:rgb(245, 246, 247);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Common styles for all tables */
+  .table-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  body{
+    background-color: #1a2c38;
+  }
+
+  .record-table{
+    background-color: #fefdfd;
+    font-size: 100px;
+  }
+  
+  
+  
