@@ -1,22 +1,22 @@
-/* AtlantaHawks.css */
+/* BrooklynNets.css */
 
-.hawks-header{
+.nets-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #a10202;
+  background-color: rgb(10, 10, 10);
   padding: 10px;
 }
 
-.hawks-logo {
+.nets-logo {
   max-width: 150px; /* Adjust the size as needed */
   max-height: 150px; /* Adjust the size as needed */
   margin-bottom: 10px; /* Add space between logo and team name */
 }
 
-.hawks-name {
-  color: #fff; /* Add text color as needed */
-  font-size: 60px; /* Adjust the size as needed */
+.nets-name {
+  color: #fff; /* Add text color */
+  font-size: 60px; /* Adjust the size */
   font-weight: bold; /* Bold the text */
   margin: 0; /* Remove default margin */
 }

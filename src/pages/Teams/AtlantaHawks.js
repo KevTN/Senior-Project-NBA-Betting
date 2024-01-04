@@ -12,9 +12,9 @@ function AtlantaHawks() {
        <Navbar />
         <Sidebar />
 
-      <header className="team-header">
-      <img src={logo} alt="Atlanta Hawks Logo" className="team-logo" />
-        <h1 className="team-name">Atlanta Hawks</h1>
+      <header className="hawks-header">
+      <img src={logo} alt="Atlanta Hawks Logo" className="hawks-logo" />
+        <h1 className="hawks-name">Atlanta Hawks</h1>
       </header>
       <TeamStatsTable />
 

@@ -15,7 +15,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+    fontSize: 20,
   },
 }));
 
@@ -28,9 +28,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const recordColumns = ['Away', 'Home', 'West', 'East', 'Division', 'Opp Ov.500', 'Opp U.500'];
-const offenseColumns = ['PPG', 'FG%', '3PT%', 'FT%', '3pt Made PG', 'Ast PG', 'Offense Rank'];
-const defenseColumns = ['Steals', 'Blocks', 'Points Allowed PG', 'Def. 3%', 'Def. FG%', 'Defense Rank'];
+const recordColumns = ['Away ', 'Home ', 'West', 'East', 'Division', 'Opp Ov.500', 'Opp U.500','Rank'];
+const offenseColumns = ['PPG  ', 'FG%  ', '3PT%', 'FT%', 'Off Reb PG', '3pt PG', 'Ast PG','T.O PG','Off. Rank'];
+const defenseColumns = ['Def Rebs','Steals', 'Blocks', 'Pnt. Allow. PG.', 'Def. 3%', 'Def. FG%', 'Defense Eff.'];
 
 function createData(...values) {
   const data = {};
@@ -47,7 +47,7 @@ function createData(...values) {
 }
 
 const rows = [
-  createData('159', '6.0', '24', '4.0', '237', '9.0', '37', '4.3', '262', '16.0', '24', '6.0', '305', '3.7', '67', '4.3', '356', '16.0', '49', '3.9'),
+  createData('0-0', '0-0', '0-0', '0-0', '0-0', '0-0', '0-0', '0-0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0'),
 ];
 
 const title = 'Team Statistics';
@@ -63,7 +63,7 @@ export default function CustomizedTables() {
         <Table sx={{ minWidth: 700 }} aria-label="record table" className="record-table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className="record-cell">Record</StyledTableCell>
+            <StyledTableCell className="record-cell">Team Record</StyledTableCell>
               {recordColumns.map((column) => (
                 <StyledTableCell key={column} align="right" className="record-cell">{column}</StyledTableCell>
               ))}
@@ -72,7 +72,7 @@ export default function CustomizedTables() {
           <TableBody>
             {rows.map((row, rowIndex) => (
               <StyledTableRow key={rowIndex}>
-                <StyledTableCell component="th" scope="row" className="record-cell">Record</StyledTableCell>
+                <StyledTableCell component="th" scope="row" className="record-cell">0-0</StyledTableCell>
                 {recordColumns.map((column) => (
                   <StyledTableCell key={column} align="right" className="record-cell">{row[column]}</StyledTableCell>
                 ))}
@@ -88,7 +88,7 @@ export default function CustomizedTables() {
         <Table sx={{ minWidth: 700 }} aria-label="offense table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className="offense-cell">Offense</StyledTableCell>
+              <StyledTableCell className="offense-cell">Offense Rank</StyledTableCell>
               {offenseColumns.map((column) => (
                 <StyledTableCell key={column} align="right" className="offense-cell">{column}</StyledTableCell>
               ))}
@@ -97,7 +97,7 @@ export default function CustomizedTables() {
           <TableBody>
             {rows.map((row, rowIndex) => (
               <StyledTableRow key={rowIndex}>
-                <StyledTableCell component="th" scope="row" className="offense-cell">Offense</StyledTableCell>
+                <StyledTableCell component="th" scope="row" className="offense-cell">1st</StyledTableCell>
                 {offenseColumns.map((column) => (
                   <StyledTableCell key={column} align="right" className="offense-cell">{row[column]}</StyledTableCell>
                 ))}
@@ -112,7 +112,7 @@ export default function CustomizedTables() {
         <Table sx={{ minWidth: 700 }} aria-label="defense table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className="defense-cell">Defense</StyledTableCell>
+              <StyledTableCell className="defense-cell">Defense Rank</StyledTableCell>
               {defenseColumns.map((column) => (
                 <StyledTableCell key={column} align="right" className="defense-cell">{column}</StyledTableCell>
               ))}
@@ -121,7 +121,7 @@ export default function CustomizedTables() {
           <TableBody>
             {rows.map((row, rowIndex) => (
               <StyledTableRow key={rowIndex}>
-                <StyledTableCell component="th" scope="row" className="defense-cell">Defense</StyledTableCell>
+                <StyledTableCell component="th" scope="row" className="defense-cell">1st</StyledTableCell>
                 {defenseColumns.map((column) => (
                   <StyledTableCell key={column} align="right" className="defense-cell">{row[column]}</StyledTableCell>
                 ))}
