@@ -1,0 +1,25 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #000332;
+    background-color: #f5e2cc;
+    border-radius: 8px;
+    padding: 20px;
+    
+  }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #000332;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #b38b79;
+  }
