@@ -1,0 +1,20 @@
+.houston-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+  }
+  
+  .houston-logo {
+    max-width: 150px; 
+    max-height: 150px; 
+    margin-bottom: 10px; 
+  }
+  
+  .houston-name {
+    color: #CE1141; 
+    font-size: 60px;
+    font-weight: bold; 
+    margin: 0; 
+  }

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
+import menuLogo from './../images/icons8-menu-64.png';
+import closeButton from './../images/icons8-close-64.png';
+
+
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -8,11 +12,25 @@ const Sidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+
   return (
     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-      <button className="toggle-btn" onClick={toggleSidebar}>
-        TEAMS
-      </button>
+      {!sidebarOpen && (
+        <button className="toggle-btn" onClick={toggleSidebar}>
+           <img src={menuLogo} alt="Menu" className="menuLogo" />
+        </button>
+      )}
+      {sidebarOpen && (
+        <div>
+          <button className="close-btn" onClick={closeSidebar}>
+          <img src={closeButton} alt="Close" className="closeButton" />
+          </button>
+          <span className="sidebar-title">Teams</span>
+        </div>
+      )}
       <ul>
       <li><Link to="/AtlantaHawks">Atlanta Hawks</Link></li>
       <li><Link to="/BostonCeltics">Boston Celtics</Link></li>
