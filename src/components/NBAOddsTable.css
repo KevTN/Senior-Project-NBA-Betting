@@ -1,0 +1,43 @@
+/* NBAOddsTable.css */
+
+.odds-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .game-container {
+    margin-bottom: px;
+    font-size: 15px;
+    background-color: rgb(248, 246, 246);
+    padding: 30px;
+    border-radius: 8px;
+  }
+  
+  .odds-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .odds-table th,
+  .odds-table td {
+    border: 1px solid rgb(16, 15, 15);
+    padding: 8px;
+    text-align: center;
+    color: rgb(14, 13, 13);
+  }
+  
+  .team-name {
+    font-weight: bold;
+  }
+  
+  .empty-cell {
+    width: 20px; /* Adjust width as needed */
+  }
+  
+  .matchup,
+  .moneyline,
+  .spread,
+  .total {
+    font-size: 20px; /*font size for all 4*/
+  }
+  
