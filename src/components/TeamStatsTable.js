@@ -133,7 +133,3 @@ export default function CustomizedTables() {
     </React.Fragment>
   );
 }
-
-
-
-

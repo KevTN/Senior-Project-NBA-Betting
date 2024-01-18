@@ -1,0 +1,20 @@
+.raptors-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #7f0606;
+  padding: 10px;
+}
+
+.raptors-logo {
+  max-width: 150px; 
+  max-height: 150px; 
+  margin-bottom: 10px; 
+}
+
+.raptors-name {
+  color: #fff; 
+  font-size: 60px;
+  font-weight: bold; 
+  margin: 0; 
+}
