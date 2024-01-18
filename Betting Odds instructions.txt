@@ -1,0 +1,29 @@
+Betting Odds
+
+How to run:
+open terminal 
+run Node APIOdds.js 
+then 
+run npm start 
+
+
+http://localhost:3001/api/nba-odds //this allows you to see the odds in JSon 
+
+3 new files:
+Odds.js / Odds.css
+OddsTable.js/ OddsTable.css
+APIOdds.js
+
+Odds.js
+	-This is the actual page of where we display the odds. 
+
+OddsTable.js
+	-This is the table controlling how we see the odds
+
+APIOdds.js
+	-This is what is fetching the odds
+	-it also creates a seperate server for the odds 
+
+It likely will make you download axios, express, and cors before you can use. 
+Chat gpt these 
+its like sudo apt express, or sudo apt axios, sudo apt cors

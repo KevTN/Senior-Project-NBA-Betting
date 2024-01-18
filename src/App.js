@@ -1,3 +1,5 @@
+/* Sets up main structure of react application*/
+
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -19,7 +21,4 @@ function App() {
   </div>
 }
   
-  
-  
-
 export default App;

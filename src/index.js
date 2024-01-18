@@ -1,3 +1,9 @@
+/*Index.js, this page sets up the routing for our react application using the 
+router-dom library
+-Routes defined using createbrowserrouter 
+-Router, routerprovider wraps the entire application providing the routing context
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
@@ -7,7 +13,7 @@ import {
 } from "react-router-dom";
 
 import Home from './pages/Home';
-import About from './pages/About';
+import Odds from './pages/Odds';
 import Hawks from './pages/Teams/AtlantaHawks';
 import Celtics from './pages/Teams/BostonCeltics';
 import Nets from './pages/Teams/BrooklynNets';
@@ -44,8 +50,8 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/About",
-    element: <About />,
+    path: "/Odds",
+    element: <Odds />,
   },
 
   {
