@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/OklahomaCity-Thunder-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function OklahomaCityThunder() {
   return (
@@ -17,6 +20,10 @@ function OklahomaCityThunder() {
         <h1 className="thunder-name">Oklahoma City Thunder</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
+
+      <PlayerRoster />
 
     </div>
   );

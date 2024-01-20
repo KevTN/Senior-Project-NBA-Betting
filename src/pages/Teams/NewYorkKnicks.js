@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/NewYork-Knicks-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function NewYorkKnicks() {
   return (
@@ -17,6 +20,10 @@ function NewYorkKnicks() {
         <h1 className="knicks-name">NewYork-Knicks</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
+
+      <PlayerRoster />
 
     </div>
   );

@@ -5,6 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Atlanta-Hawks-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
 
 function AtlantaHawks() {
   return (
@@ -17,8 +19,13 @@ function AtlantaHawks() {
         <h1 className="hawks-name">Atlanta Hawks</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
+    
+    
   );
 }
 

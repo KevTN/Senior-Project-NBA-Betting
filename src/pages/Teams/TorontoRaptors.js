@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Toronto-Raptors-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function TorontoRaptors() {
   return (
@@ -17,6 +20,10 @@ function TorontoRaptors() {
         <h1 className="raptors-name">Toronto Raptors</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
+
+      <PlayerRoster />
 
     </div>
   );

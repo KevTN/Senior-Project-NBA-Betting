@@ -5,6 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Brooklyn-Nets-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
 
 function BrooklynNets() {
   return (
@@ -17,7 +19,10 @@ function BrooklynNets() {
         <h1 className="nets-name">Brooklyn Nets</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }

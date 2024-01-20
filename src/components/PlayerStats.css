@@ -1,0 +1,18 @@
+/* TeamStatsTable.css */
+
+/* Table Title */
+.table-title {
+    color:rgb(247, 244, 244);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Common styles for all tables */
+  .table-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  
+  

@@ -5,6 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Boston-Celtics-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
 
 function BostonCeltics() {
   return (
@@ -17,7 +19,10 @@ function BostonCeltics() {
         <h1 className="celtics-name">Boston Celtics</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }
