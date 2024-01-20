@@ -5,6 +5,10 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Cleveland-Cavaliers-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
+
 
 function ClevelandCavaliers() {
   return (
@@ -17,7 +21,10 @@ function ClevelandCavaliers() {
         <h1 className="cavs-name">Cleveland Cavaliers</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }

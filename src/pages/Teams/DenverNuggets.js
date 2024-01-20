@@ -5,6 +5,10 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Denver-Nuggets-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
+
 
 function DenverNuggets() {
   return (
@@ -17,7 +21,10 @@ function DenverNuggets() {
         <h1 className="nuggets-name">Denver Nuggets</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }

@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Portland-TrailBlazers-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function PortlandTrailBlazers() {
   return (
@@ -17,6 +20,10 @@ function PortlandTrailBlazers() {
         <h1 className="trailblazers-name">Portland TrailBlazers</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
+
+      <PlayerRoster />
 
     </div>
   );

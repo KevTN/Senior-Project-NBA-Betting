@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Philadelphia-76ers-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function Philadelphia76ers() {
   return (
@@ -17,7 +20,10 @@ function Philadelphia76ers() {
         <h1 className="sixers-name">Philadelphia 76ers</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }

@@ -5,6 +5,10 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Detroit-Pistons-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
+
 
 function DetroitPistons() {
   return (
@@ -17,7 +21,10 @@ function DetroitPistons() {
         <h1 className="pistons-name">Detroit Pistons</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }

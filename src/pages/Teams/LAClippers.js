@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/LA-Clippers-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function LAClippers() {
   return (
@@ -17,6 +20,10 @@ function LAClippers() {
         <h1 className="clippers-name">LA Clippers </h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
+
+      <PlayerRoster />
 
     </div>
   );

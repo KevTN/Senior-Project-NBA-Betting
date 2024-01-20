@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Utah-Jazz-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function UtahJazz() {
   return (
@@ -17,7 +20,10 @@ function UtahJazz() {
         <h1 className="jazz-name">Utah Jazz</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }

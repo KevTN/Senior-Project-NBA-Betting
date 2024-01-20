@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Charlotte-Hornets-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function CharlotteHornets() {
   return (
@@ -17,7 +20,10 @@ function CharlotteHornets() {
         <h1 className="hornets-name">Charlotte Hornets</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }

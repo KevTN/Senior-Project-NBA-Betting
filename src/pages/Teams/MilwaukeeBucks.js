@@ -5,6 +5,9 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Milwaukee-Bucks-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
+import PlayerRoster from '../../components/PlayerRoster'
+import PlayerStats from '../../components/PlayerStats'
+
 
 function MilwaukeeBucks() {
   return (
@@ -17,7 +20,10 @@ function MilwaukeeBucks() {
         <h1 className="bucks-name">Milwaukee Bucks</h1>
       </header>
       <TeamStatsTable />
+      
+      <PlayerStats />
 
+      <PlayerRoster />
     </div>
   );
 }
