@@ -1,0 +1,21 @@
+.poll-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .yes-button {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .no-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }

@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import "./Table.css"
+import Poll from './Poll';
 
 function createData(home, away, time ) {
   return { home, away, time};
@@ -29,6 +30,7 @@ export default function BasicTable() {
             <TableCell align="center">Home</TableCell>
             <TableCell align="center">Away</TableCell>
             <TableCell align="center">Time</TableCell>
+            <TableCell align="center">Vote</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -40,6 +42,9 @@ export default function BasicTable() {
               <TableCell align="center">{row.home}</TableCell>
               <TableCell align="center">{row.away}</TableCell>
               <TableCell align="center">{row.time}</TableCell>
+              <TableCell align="center">
+                <Poll / >
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
