@@ -1,43 +1,79 @@
 /* NBAOddsTable.css */
 
 .odds-container {
-    display: flex;
-    flex-direction: column;
-  }
+  max-width: 2000px;
+  margin: 0 auto;
   
-  .game-container {
-    margin-bottom: px;
-    font-size: 15px;
-    background-color: rgb(248, 246, 246);
-    padding: 30px;
-    border-radius: 8px;
-  }
-  
-  .odds-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .odds-table th,
-  .odds-table td {
-    border: 1px solid rgb(16, 15, 15);
-    padding: 8px;
-    text-align: center;
-    color: rgb(14, 13, 13);
-  }
-  
-  .team-name {
-    font-weight: bold;
-  }
-  
-  .empty-cell {
-    width: 20px; /* Adjust width as needed */
-  }
-  
-  .matchup,
-  .moneyline,
-  .spread,
-  .total {
-    font-size: 20px; /*font size for all 4*/
-  }
-  
+}
+
+.game-container {
+  color: rgb(245, 240, 240);
+  background-color: #071824;
+  border-radius: 20px; /* Add border-radius for rounded corners */
+  padding: 0px; 
+  font-weight: bold; 
+  font-family: Arial, sans-serif; 
+  font-size: 23px;
+  text-align: center;
+}
+
+/*date*/
+.game-info {
+  color: rgb(245, 240, 240);
+  margin-top: 0px; /* Adjust the margin to your preference */
+  margin-left: 5px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  padding: 8px; 
+  font-family: Arial, sans-serif; 
+  font-size: 14px;
+  text-align: right;
+  background-color:  #071824;
+}
+
+
+
+.odds-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 20px solid #071824; /* Add border to the entire table */
+  border-radius: 20px; /* Add border-radius for rounded corners */
+  font-size: 23px;
+}
+
+.matchup,
+.moneyline,
+.spread,
+.total {
+  width: 100px; /* Adjust the width to your preference */
+  border: 2px solid #071824;
+  padding: 10px;
+  text-align: center;
+  background-color: #1a2c38;
+  color: white;
+  border-radius: 5px;
+}
+
+/*away team cells*/
+.team-name,
+.moneyline_cell,
+.spread_cell,
+.total_cell {
+  border: 2px solid #071824; /* Add border to table cells */
+  text-align: center;
+  background-color: #071824;
+  padding: 10px;
+  font-size: 20px;
+}
+
+/*home team cells*/
+.moneyline_cell_1,
+.spread_cell_1,
+.total_cell_1 {
+  border: 2px solid #071824; /* Add border to table cells */
+  text-align: center;
+  background-color: #071824;
+  font-size: 20px;
+}
+

@@ -7,7 +7,6 @@ import logo from '../images/logo.png';
 function Navbar() {
   return (
     <div className="navbar">
-
     <div className="leftSide">
       <a href="/">
         <img src={logo} alt="Logo" className="logosize" />

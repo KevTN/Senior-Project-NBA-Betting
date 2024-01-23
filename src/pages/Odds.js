@@ -1,6 +1,6 @@
 /* Odds.js this is the main page for the Sports Betting page
 this calls the component NBAOddsTable.js to create a table
-showing all the odds.*//*
+showing all the odds.*/
 
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
@@ -66,4 +66,3 @@ const Odds = () => {
 };
 
 export default Odds;
-*/

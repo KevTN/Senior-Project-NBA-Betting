@@ -1,41 +1,40 @@
+/* Navbar.css */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #071824; 
-    color: white; 
-  }
-  
-  .leftSide {
-    font-size: xx-large; 
-    font-family: Brush Script MT, sans-serif; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #071824; 
+  color: white; 
+}
 
-  }
+.leftSide {
+  font-size: xx-large; 
+  font-family: Brush Script MT, sans-serif; 
+  display: flex;
+  flex-direction: column; /* Added to arrange logo and text in a column */
+  align-items: center;
+}
 
-  .rightSide {
+.logosize {
+  width: 250px;
+  height: auto;
+  margin-bottom: 0.5rem; /* Added margin to separate logo and text */
+}
 
-  }
-  
-  .rightSide a {
-    color: white; 
-    text-decoration: none; 
-    padding: 0.5rem 1rem; 
-    border-radius: 20px; 
-    font-weight: bold; 
-    font-size: small;
-    font-family: 'Arial', sans-serif; 
-  }
-  
-  .rightSide a:hover {
-    background-color: #1a2c38;
-  }
-  
-  .logosize {
-    width: 250px;
-    height: auto;
-    flex-grow: 1;
+.rightSide a {
+  color: white; 
+  text-decoration: none; 
+  padding: 0.5rem 1rem; 
+  border-radius: 20px; 
+  font-weight: bold; 
+  font-size: 15px;
+  font-family: 'Arial', sans-serif; 
+}
 
-  }
+.rightSide a:hover {
+  background-color: #1a2c38;
+}
+
 
