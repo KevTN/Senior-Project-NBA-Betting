@@ -10,7 +10,7 @@ Features
 -Express Route for NBA odds
 -ServerStart*/
 
-/*
+
 //Required Modules
 const express = require('express');
 const cors = require('cors');
@@ -106,6 +106,6 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
-*/
+
 
 
