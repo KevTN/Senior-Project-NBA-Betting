@@ -3,6 +3,7 @@ import Footer from '../components/footer'
 import Navbar from '../components/Navbar'
 import Table from '../components/Table'
 
+
 import '../App.css';
 
 function Home() {
