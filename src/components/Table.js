@@ -6,51 +6,40 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import "./Table.css"
-import Poll from './Poll';
+import "./NBAGamesTable.css"; // Assuming you have a stylesheet for this component
 
-function createData(home, away, time ) {
-  return { home, away, time};
-}
-
-const rows = [
-  createData('Lakers', 'Golden State Warriors', 5),
-  createData('Heat', 'Cavaliers', 5),
-
-];
-
-export default function BasicTable() {
+const NBAGamesTable = ({ gamesData }) => {
   return (
-    <div className="todaygame">
-      <h2 class="tableName">NBA Games Today</h2>
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">Home</TableCell>
-            <TableCell align="center">Away</TableCell>
-            <TableCell align="center">Time</TableCell>
-            <TableCell align="center">Vote</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell align="center">{row.home}</TableCell>
-              <TableCell align="center">{row.away}</TableCell>
-              <TableCell align="center">{row.time}</TableCell>
-              <TableCell align="center">
-                <Poll / >
-              </TableCell>
+    <div className="games-container">
+      <h2 className="tableName">NBA Games Today</h2>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Home</TableCell>
+              <TableCell align="center">Away</TableCell>
+              <TableCell align="center">Time</TableCell>
+              <TableCell align="center">Vote</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {gamesData.map((game, index) => (
+              <TableRow key={index}>
+                <TableCell align="center">{game.teams.home?.nickname}</TableCell>
+                <TableCell align="center">{game.teams.visitors?.nickname}</TableCell>
+                <TableCell align="center">{new Date(game.date.start).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}</TableCell>
+                <TableCell align="center">
+                  {/* Replace Poll with your actual component */}
+                  <span>Voting/Poll Component</span>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
-}
+};
+
+export default NBAGamesTable;
+

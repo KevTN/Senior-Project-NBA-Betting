@@ -1,0 +1,38 @@
+/* Header.css */
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #1a2c38; /* Set the background color for the header */
+}
+
+.logo {
+  color: white; /* Set the color for the logo text */
+  font-size: 24px; /* Adjust the font size for the logo */
+  /* Add more styles as needed */
+}
+
+.sidebar {
+  color: white; /* Set the color for the sidebar text */
+  /* Add more styles for the sidebar */
+}
+
+.tab-bar {
+  display: flex;
+  gap: 20px; /* Adjust the gap between tabs */
+}
+
+.tab {
+  padding: 10px;
+  background-color: #071824;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Add more styles as needed */
+}
+
+.tab:hover {
+  background-color: #1f82c9; /* Change the color on hover */
+}
