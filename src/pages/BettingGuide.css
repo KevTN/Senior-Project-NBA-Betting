@@ -1,0 +1,51 @@
+/* BettingGuide.css */
+  
+.bettingGuide-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #071824;
+    padding: 50px;
+    text-align: center;
+  }
+   
+  .header-title {
+    color: #fff; /* Add text color as needed */
+    font-size: 60px; /* Adjust the size as needed */
+    font-weight: bold; /* Bold the text */
+    margin: 0; /* Remove default margin */
+  }
+
+  .hoop-logo {
+    max-width: 150px; /* Adjust the size as needed */
+    max-height: 150px; /* Adjust the size as needed */
+    margin-bottom: 10px; /* Add space between logo and team name */
+  }
+
+  .definitions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffff; /* Set the text color to white */
+    overflow:scroll;
+  }
+
+  .betting-table {
+    width: 100%;
+    border-collapse:collapse;
+    margin-top: 10px; /* Adjust as needed */
+    width: 100%;
+    border: 10px solid #071824; /* Add border to the entire table */
+    border-radius: 70px; /* Add border-radius for rounded corners */
+    font-size: 23px;
+  }
+  
+  .betting-table th, .betting-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .betting-table th {
+    background-color: #1a2c38;
+  }

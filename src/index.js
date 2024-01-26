@@ -14,6 +14,7 @@ import {
 
 import Home from './pages/Home';
 import Odds from './pages/Odds';
+import BettingGuide from './pages/BettingGuide';
 import Hawks from './pages/Teams/AtlantaHawks';
 import Celtics from './pages/Teams/BostonCeltics';
 import Nets from './pages/Teams/BrooklynNets';
@@ -44,6 +45,7 @@ import Spurs from './pages/Teams/SanAntonioSpurs';
 import Raptors from './pages/Teams/TorontoRaptors';
 import Jazz from './pages/Teams/UtahJazz';
 import Wizards from './pages/Teams/WashingtonWizards';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
     element: <Odds />,
   },
 
+  {
+    path: "/BettingGuide",
+    element: <BettingGuide />
+  },
   {
     path: "/AtlantaHawks",
     element: <Hawks />,

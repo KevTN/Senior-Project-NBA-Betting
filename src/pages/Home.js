@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Table from '../components/Table'
 
+
 import '../App.css';
 
 function Home() {
