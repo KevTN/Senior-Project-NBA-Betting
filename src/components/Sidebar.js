@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
-import menuLogo from './../images/icons8-menu-64.png';
 import closeButton from './../images/icons8-close-64.png';
 
 
@@ -20,7 +19,7 @@ const Sidebar = () => {
     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
       {!sidebarOpen && (
         <button className="toggle-btn" onClick={toggleSidebar}>
-           <img src={menuLogo} alt="Menu" className="menuLogo" />
+           Teams
         </button>
       )}
       {sidebarOpen && (

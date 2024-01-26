@@ -18,15 +18,22 @@
 .toggle-btn {
   font-size: 20px;
   position: fixed;
-  top: 100px;
+  top: 25px;
   left: 20px;
-  background-color: #1a2c38;
+  background-color: #071824;
   color: white;
-  padding: 0px;
+  padding: 10px 20px; 
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 1;
+  font-weight: bold; 
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease; 
+}
+
+.toggle-btn:hover {
+  background-color: #0c394b; 
 }
 
 ul {
@@ -49,7 +56,7 @@ li {
 }
 
 li:hover {
-  background-color: #555;
+  background-color: #1a2c38;
 }
 
 ::-webkit-scrollbar {
