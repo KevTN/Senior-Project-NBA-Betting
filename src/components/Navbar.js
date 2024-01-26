@@ -2,24 +2,13 @@ import React from 'react';
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
-
+import Sidebar from './Sidebar'
 
 function Navbar() {
   return (
     <div className="navbar">
-    <div className="leftSide">
-      <a href="/">
-        <img src={logo} alt="Logo" className="logosize" />
-      </a>
-    </div>
-      
 
-      <div className="rightSide">
-        <Link to="/"> Home </Link>
-        <Link to ="/Odds"> Odds</Link>
-        <Link to ="/BettingGuide"> Betting Guide</Link>
       </div>
-      
     </div>
   )
 }

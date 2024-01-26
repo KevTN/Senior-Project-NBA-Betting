@@ -20,3 +20,40 @@
     font-weight: bold; /* Bold the text */
     margin: 0; /* Remove default margin */
   }
+
+  .toggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .toggle-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #071824;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-buttons button:hover,
+  .toggle-buttons button:active { /* Apply styles on hover and when clicked */
+    background-color:  #0c394b;
+    
+  }
+  
+  /* Add animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .toggle-buttons button {
+    animation: fadeIn 0.5s ease;
+  }
