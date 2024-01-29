@@ -1,0 +1,8 @@
+How to start app
+
+API is running on two different servers
+
+Node src/APIOdds.js (this will start up the server so you can see odds)
+Node src/APIGames.js (this will start up the server so you can see yesterdays games)
+npm Start (this starts it)
+
