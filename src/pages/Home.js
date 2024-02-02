@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/footer';
 import Navbar from '../components/Navbar';
+/*import TodayGames from '../components/TodaysGames';
+import TomorrowGames from '../components/TomorrowsGames';*/
+import YesterdayGames from '../components/YesterdayGames';
 import axios from 'axios';
-import GamesTable from '../components/GamesTable';
+import './Home.css';
+
 
 const Games = () => {
-  // State for storing NBA games data
   const [gamesData, setGamesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedOption, setSelectedOption] = useState('Today');
 
   const parseGameData = (rawData) => {
     try {
@@ -19,39 +23,64 @@ const Games = () => {
     }
   };
 
-  // Fetch NBA games data on component mount
-  useEffect(() => {
-    const fetchNBAGames = async () => {
-      try {
-        const response = await axios.get('http://localhost:3002/api/nba-games');
+  const fetchNBAGames = async (date) => {
+    try {
+      const response = await axios.get(`http://localhost:3002/api/nba-games?date=${date}`);
 
-        if (response && response.data && response.data.response) {
-          const parsedData = parseGameData(response.data.response);
-          setGamesData(parsedData);
-        } else {
-          console.error('Invalid response format:', response);
-          setError('Error fetching NBA Games. Please try again later.');
-        }
-      } catch (error) {
-        console.error('Error fetching NBA Games:', error);
-        console.error('Response data:', error.response ? error.response.data : undefined);
+      if (response && response.data && response.data.response) {
+        const parsedData = parseGameData(response.data.response);
+        setGamesData(parsedData);
+      } else {
+        console.error('Invalid response format:', response);
         setError('Error fetching NBA Games. Please try again later.');
-      } finally {
-        setLoading(false);
       }
-    };
+    } catch (error) {
+      console.error('Error fetching NBA Games:', error);
+      console.error('Response data:', error.response ? error.response.data : undefined);
+      setError('Error fetching NBA Games. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchNBAGames();
-  }, []); // Empty dependency array ensures this effect runs only once on mount
+  useEffect(() => {
+    // Fetch NBA games data for the initially selected option (Today)
+    fetchNBAGames(selectedOption.toLowerCase());
+  }, [selectedOption]);
+
+
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+  };
 
   return (
     <div>
-      <Navbar />
-      <GamesTable gamesData={gamesData} />
-      <Footer />
+    <Navbar />
+    <h1 className="main-header">NBA Scoreboard</h1>
+    <div className="toggle-buttons-container">
+      <button className="y-button" onClick={() => setSelectedOption('Yesterday')}>Yesterday</button>
+      <button className="tod-button" onClick={() => setSelectedOption('Today')}>Today</button>
+      <button className="tom-button" onClick={() => setSelectedOption('Tomorrow')}>Tomorrow</button>
     </div>
-  );
+    {selectedOption === 'Yesterday' ? (
+      <div>
+        <YesterdayGames gamesData={gamesData} />
+      </div>
+    ) : selectedOption === 'Today' ? (
+      <div>
+        {/* Content for 'Today' */}
+      </div>
+    ) : (
+      <div>
+        {/* Content for 'Tomorrow' */}
+      </div>
+    )}
+    <Footer />
+  </div>
+  
+);
 };
 
 export default Games;
+
 
