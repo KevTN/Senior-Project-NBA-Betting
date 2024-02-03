@@ -58,10 +58,10 @@ const Games = () => {
     <Navbar />
     <h1 className="main-header">NBA Scoreboard</h1>
     <div className="toggle-buttons-container">
-      <button className="y-button" onClick={() => setSelectedOption('Yesterday')}>Yesterday</button>
-      <button className="tod-button" onClick={() => setSelectedOption('Today')}>Today</button>
-      <button className="tom-button" onClick={() => setSelectedOption('Tomorrow')}>Tomorrow</button>
-    </div>
+        <button className={`y-button ${selectedOption === 'Yesterday' ? 'active' : ''}`} onClick={() => setSelectedOption('Yesterday')}>Yesterday</button>
+        <button className={`tod-button ${selectedOption === 'Today' ? 'active' : ''}`} onClick={() => setSelectedOption('Today')}>Today</button>
+        <button className={`tom-button ${selectedOption === 'Tomorrow' ? 'active' : ''}`} onClick={() => setSelectedOption('Tomorrow')}>Tomorrow</button>
+      </div>
     {selectedOption === 'Yesterday' ? (
       <div>
         <YesterdayGames gamesData={gamesData} />
