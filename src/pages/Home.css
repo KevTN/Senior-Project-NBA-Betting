@@ -1,7 +1,7 @@
 /* Home.css */
 
 .main-header { /* NBA Games */
-    color: rgba(255, 255, 255, 0.753);
+    color:white ;
     background-color: #071824;
     /*border: 1px solid black; /* Thin black border */
     font-weight: bold; 
@@ -17,16 +17,17 @@
 .tom-button,
 .tod-button {
     font-size: 25px;
-    color: rgb(249, 251, 251);
+    color: white;
     padding: 5px;
     text-align: center;
-    background-color: rgb(21, 21, 21);
-    border: 3px solid rgb(21, 21, 21);; /* Thin black border */
+    background-color: #071824;
+    border: 5px solid #0c394b; /* Thin black border */
+    border-radius: 100px;
 }
 
 .toggle-buttons-container button:hover,
 .toggle-buttons-container button:active { /* Apply styles on hover and when clicked */
-    background-color: #0b0c6acc;
+    background-color: #0c394b;
 }
 
 .toggle-buttons-container button {
@@ -40,4 +41,9 @@
     display: flex;
     justify-content: space-evenly; /* Center horizontally */
     align-items: center; /* Center vertically */
+}
+
+.toggle-buttons-container button.active {
+    background-color: #0c394b; /* Highlighted background color */
+    border-color: #0c394b; /* Highlighted border color */
 }

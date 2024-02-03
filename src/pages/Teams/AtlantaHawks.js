@@ -21,7 +21,7 @@ function AtlantaHawks() {
         <img src={logo} alt="Atlanta Hawks Logo" className="hawks-logo" />
         <h1 className="hawks-name">Atlanta Hawks</h1>
       </header>
-      <div className="toggle-buttons-container">
+      <div className="toggle-buttons">
         <button onClick={() => handleOptionChange('Team Roster')}>Team Roster</button>
         <button onClick={() => handleOptionChange('Team Statistics')}>Team Statistics</button>
         <button onClick={() => handleOptionChange('Player Statistics')}>Player Statistics</button>
