@@ -1,196 +1,85 @@
-/*Index.js, this page sets up the routing for our react application using the 
-router-dom library
--Routes defined using createbrowserrouter 
--Router, routerprovider wraps the entire application providing the routing context
- */
-
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Odds from './pages/Odds';
+import OddsFirebase from './pages/OddsFirebase';
 import BettingGuide from './pages/BettingGuide';
-import Hawks from './pages/Teams/AtlantaHawks';
-import Celtics from './pages/Teams/BostonCeltics';
-import Nets from './pages/Teams/BrooklynNets';
-import Hornets from './pages/Teams/CharlotteHornets';
-import Bulls from './pages/Teams/ChicagoBulls';
-import Cavaliers from './pages/Teams/ClevelandCavaliers';
-import Mavericks from './pages/Teams/DallasMavericks';
-import Nuggets from './pages/Teams/DenverNuggets';
-import Pistons from './pages/Teams/DetroitPistons';
-import Warriors from './pages/Teams/GoldenStateWarriors';
-import Rockets from './pages/Teams/HoustonRockets';
-import Pacers from './pages/Teams/IndianaPacers';
-import Clippers from './pages/Teams/LAClippers';
-import Lakers from './pages/Teams/LosAngelesLakers';
-import Grizzlies from './pages/Teams/MemphisGrizzlies';
-import Heat from './pages/Teams/MiamiHeat';
-import Bucks from './pages/Teams/MilwaukeeBucks';
-import Timberwolves from './pages/Teams/MinnesotaTimberwolves';
-import Pelicans from './pages/Teams/NewOrleansPelicans';
-import Knicks from './pages/Teams/NewYorkKnicks';
-import Thunder from './pages/Teams/OklahomaCityThunder';
-import Magic from './pages/Teams/OrlandoMagic';
-import Sixers from './pages/Teams/Philadelphia76ers';
-import Suns from './pages/Teams/PhoenixSuns';
-import TrailBlazers from './pages/Teams/PortlandTrailBlazers';
-import Kings from './pages/Teams/SacramentoKings';
-import Spurs from './pages/Teams/SanAntonioSpurs';
-import Raptors from './pages/Teams/TorontoRaptors';
-import Jazz from './pages/Teams/UtahJazz';
-import Wizards from './pages/Teams/WashingtonWizards';
+import AtlantaHawks from './pages/Teams/AtlantaHawks';
+import BostonCeltics from './pages/Teams/BostonCeltics';
+import BrooklynNets from './pages/Teams/BrooklynNets';
+import CharlotteHornets from './pages/Teams/CharlotteHornets';
+import ChicagoBulls from './pages/Teams/ChicagoBulls';
+import ClevelandCavaliers from './pages/Teams/ClevelandCavaliers';
+import DallasMavericks from './pages/Teams/DallasMavericks';
+import DenverNuggets from './pages/Teams/DenverNuggets';
+import DetroitPistons from './pages/Teams/DetroitPistons';
+import GoldenStateWarriors from './pages/Teams/GoldenStateWarriors';
+import HoustonRockets from './pages/Teams/HoustonRockets';
+import IndianaPacers from './pages/Teams/IndianaPacers';
+import LAClippers from './pages/Teams/LAClippers';
+import LosAngelesLakers from './pages/Teams/LosAngelesLakers';
+import MemphisGrizzlies from './pages/Teams/MemphisGrizzlies';
+import MiamiHeat from './pages/Teams/MiamiHeat';
+import MilwaukeeBucks from './pages/Teams/MilwaukeeBucks';
+import MinnesotaTimberwolves from './pages/Teams/MinnesotaTimberwolves';
+import NewOrleansPelicans from './pages/Teams/NewOrleansPelicans';
+import NewYorkKnicks from './pages/Teams/NewYorkKnicks';
+import OklahomaCityThunder from './pages/Teams/OklahomaCityThunder';
+import OrlandoMagic from './pages/Teams/OrlandoMagic';
+import Philadelphia76ers from './pages/Teams/Philadelphia76ers';
+import PhoenixSuns from './pages/Teams/PhoenixSuns';
+import PortlandTrailBlazers from './pages/Teams/PortlandTrailBlazers';
+import SacramentoKings from './pages/Teams/SacramentoKings';
+import SanAntonioSpurs from './pages/Teams/SanAntonioSpurs';
+import TorontoRaptors from './pages/Teams/TorontoRaptors';
+import UtahJazz from './pages/Teams/UtahJazz';
+import WashingtonWizards from './pages/Teams/WashingtonWizards';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/Odds",
-    element: <Odds />,
-  },
-
-  {
-    path: "/BettingGuide",
-    element: <BettingGuide />
-  },
-  {
-    path: "/AtlantaHawks",
-    element: <Hawks />,
-  },
-  {
-    path: "/BostonCeltics",
-    element: <Celtics />,
-  },
-  {
-    path: "/BrooklynNets",
-    element: <Nets />,
-  },
-  {
-    path: "/CharlotteHornets",
-    element: <Hornets />,
-  },
-  {
-    path: "/ChicagoBulls",
-    element: <Bulls />,
-  },
-  {
-    path: "/ClevelandCavaliers",
-    element: <Cavaliers />,
-  },
-  {
-    path: "/DallasMavericks",
-    element: <Mavericks />,
-  },
-  {
-    path: "/DenverNuggets",
-    element: <Nuggets />,
-  },
-  {
-    path: "/DetroitPistons",
-    element: <Pistons />,
-  },
-  {
-    path: "/GoldenStateWarriors",
-    element: <Warriors />,
-  },
-  {
-    path: "/HoustonRockets",
-    element: <Rockets />,
-  },
-  {
-    path: "/IndianaPacers",
-    element: <Pacers />,
-  },
-  {
-    path: "/LAClippers",
-    element: <Clippers />,
-  },
-  {
-    path: "/LosAngelesLakers",
-    element: <Lakers />,
-  },
-  {
-    path: "/MemphisGrizzlies",
-    element: <Grizzlies />,
-  },
-  {
-    path: "/MiamiHeat",
-    element: <Heat />,
-  },
-  {
-    path: "/MilwaukeeBucks",
-    element: <Bucks />,
-  },
-  {
-    path: "/MinnesotaTimberwolves",
-    element: <Timberwolves />,
-  },
-  {
-    path: "/NewOrleansPelicans",
-    element: <Pelicans />,
-  },
-  {
-    path: "/NewYorkKnicks",
-    element: <Knicks />,
-  },
-  {
-    path: "/OklahomaCityThunder",
-    element: <Thunder />,
-  },
-  {
-    path: "/OrlandoMagic",
-    element: <Magic />,
-  },
-  {
-    path: "/Philadelphia76ers",
-    element: <Sixers />,
-  },
-  {
-    path: "/PhoenixSuns",
-    element: <Suns />,
-  },
-  {
-    path: "/PortlandTrailBlazers",
-    element: <TrailBlazers />,
-  },
-  {
-    path: "/SacramentoKings",
-    element: <Kings />,
-  },
-  {
-    path: "/SanAntonioSpurs",
-    element: <Spurs />,
-  },
-  {
-    path: "/TorontoRaptors",
-    element: <Raptors />,
-  },
-  {
-    path: "/UtahJazz",
-    element: <Jazz />,
-  },
-  {
-    path: "/WashingtonWizards",
-    element: <Wizards />,
-  },
-
-]);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <Router>
+      <Route exact path="/" component={Home} />
+      <Route path="/Odds" component={OddsFirebase} />
+      <Route path="/BettingGuide" component={BettingGuide} />
+      <Route path="/AtlantaHawks" component={AtlantaHawks} />
+      <Route path="/BostonCeltics" component={BostonCeltics} />
+      <Route path="/BrooklynNets" component={BrooklynNets} />
+      <Route path="/CharlotteHornets" component={CharlotteHornets} />
+      <Route path="/ChicagoBulls" component={ChicagoBulls} />
+      <Route path="/ClevelandCavaliers" component={ClevelandCavaliers} />
+      <Route path="/DallasMavericks" component={DallasMavericks} />
+      <Route path="/DenverNuggets" component={DenverNuggets} />
+      <Route path="/DetroitPistons" component={DetroitPistons} />
+      <Route path="/GoldenStateWarriors" component={GoldenStateWarriors} />
+      <Route path="/HoustonRockets" component={HoustonRockets} />
+      <Route path="/IndianaPacers" component={IndianaPacers} />
+      <Route path="/LAClippers" component={LAClippers} />
+      <Route path="/LosAngelesLakers" component={LosAngelesLakers} />
+      <Route path="/MemphisGrizzlies" component={MemphisGrizzlies} />
+      <Route path="/MiamiHeat" component={MiamiHeat} />
+      <Route path="/MilwaukeeBucks" component={MilwaukeeBucks} />
+      <Route path="/MinnesotaTimberwolves" component={MinnesotaTimberwolves} />
+      <Route path="/NewOrleansPelicans" component={NewOrleansPelicans} />
+      <Route path="/NewYorkKnicks" component={NewYorkKnicks} />
+      <Route path="/OklahomaCityThunder" component={OklahomaCityThunder} />
+      <Route path="/OrlandoMagic" component={OrlandoMagic} />
+      <Route path="/Philadelphia76ers" component={Philadelphia76ers} />
+      <Route path="/PhoenixSuns" component={PhoenixSuns} />
+      <Route path="/PortlandTrailBlazers" component={PortlandTrailBlazers} />
+      <Route path="/SacramentoKings" component={SacramentoKings} />
+      <Route path="/SanAntonioSpurs" component={SanAntonioSpurs} />
+      <Route path="/TorontoRaptors" component={TorontoRaptors} />
+      <Route path="/UtahJazz" component={UtahJazz} />
+      <Route path="/WashingtonWizards" component={WashingtonWizards} />
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+
