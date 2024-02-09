@@ -4,12 +4,14 @@ const axios = require('axios');
 
 const app = express();
 const port = 3002;
+require('dotenv').config({ path: './dotenv.env' });
+
 
 app.use(cors());
 
 // Define an async function to fetch NBA games
 const getNBAGames = async () => {
-  const apiKey = '7c5906e5bdmshd4040afab063c22p159dbbjsn6a28437aaf5e'; // Replace with your API key
+  const apiKey = process.env.Games_API_KEY;
   const today = new Date();
   const year = today.getFullYear();
   const month = (today.getMonth() + 1).toString().padStart(2, '0');

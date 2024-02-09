@@ -15,6 +15,7 @@ Features
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+require('dotenv').config({ path: './dotenv.env' });
 
 //creates an express application
 const app = express();
@@ -27,7 +28,7 @@ app.use(cors());
 //holds the oddsAPI key and parameters 
 const getNBAOdds = async () => {
     try {
-        const apiKey = '0a7555ac68bd116b9b234245c2f3a2a2';
+        const apiKey = process.env.ODDS_API_KEY;
         const sportKey = 'basketball_nba';
         const regions = 'us';
         const markets = 'h2h,spreads,totals';
