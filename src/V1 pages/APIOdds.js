@@ -6,24 +6,36 @@ Features
 -Express server setup
 -Cors configuration
 -NBA odds API Request
--Data ProcessingFz
+-Data Processing
 -Express Route for NBA odds
 -ServerStart*/
 
-//const express = require('express');
-//const cors = require('cors');
-const axios = require('axios');
-const { db, collection, addDoc, setDoc, Timestamp } = require("./FirebaseConfig");
 
+//Required Modules
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios');
+require('dotenv').config({ path: './dotenv.env' });
+
+//creates an express application
+const app = express();
+const port = 3001;
+
+// Enables CORS allows cross-origin requests
+app.use(cors());
+
+//fetchs nba odds data
+//holds the oddsAPI key and parameters 
 const getNBAOdds = async () => {
     try {
-        const apiKey = '0a7555ac68bd116b9b234245c2f3a2a2';
+        const apiKey = process.env.ODDS_API_KEY;
         const sportKey = 'basketball_nba';
         const regions = 'us';
         const markets = 'h2h,spreads,totals';
         const oddsFormat = 'american';
         const dateFormat = 'iso';
 
+        //This is the API Request to get the NBA odds data. In defeault format
         const response = await axios.get(`https://api.the-odds-api.com/v4/sports/${sportKey}/odds`, {
             params: {
                 apiKey,
@@ -34,10 +46,14 @@ const getNBAOdds = async () => {
             },
         });
 
+        // Checks if response.data.data is defined and is an array
         if (Array.isArray(response.data)) {
+            // Extract and formats relevant data
             const formattedData = response.data.map(game => {
                 const { commence_time, home_team, away_team, bookmakers } = game;
                 
+                //bookmaker can be changed to Ceasars, fanduel, etc, or multiple can be added with a comma
+                //I found it easier to look at with just one sportsbook
                 const gameData = {
                     home_team,
                     away_team,
@@ -60,6 +76,7 @@ const getNBAOdds = async () => {
                 return gameData;
             });
 
+            // Filter out null values (games with no data for the specified bookmakers)
             const filteredData = formattedData.filter(data => data !== null);
 
             return filteredData;
@@ -73,31 +90,7 @@ const getNBAOdds = async () => {
     }
 };
 
-const saveToFirestore = async () => {
-    try {
-        const oddsData = await getNBAOdds();
-
-        await Promise.all(oddsData.map(async gameData => {
-            try {
-                const currentDate = new Date(gameData.commence_time).toISOString().split('T')[0];
-                const [_, month, day] = currentDate.split('-');
-
-                const oddsRef = collection(db, 'nbaOdds', month, day);
-                const docRef = await addDoc(oddsRef, gameData);
-                console.log('Game saved to Firebase for date', currentDate, 'with ID:', docRef.id);
-            } catch (error) {
-                console.error('Error saving game to Firebase:', error);
-            }
-        }));
-    } catch (error) {
-        console.error('Error saving to Firestore:', error);
-    }
-};
-
-saveToFirestore();
-
-
-/* Define the route handler for Get requests to /api/nba-odds
+// Define the route handler for Get requests to /api/nba-odds
 app.get('/api/nba-odds', async (req, res) => {
     try {
         // Fetch NBA odds data using defined function
@@ -107,9 +100,13 @@ app.get('/api/nba-odds', async (req, res) => {
         console.error('Error handling /api/nba-odds request:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-});*/
+});
 
-/* Start the server and listens to the specificed port
+// Start the server and listens to the specificed port
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-});*/
+});
+
+
+
+
