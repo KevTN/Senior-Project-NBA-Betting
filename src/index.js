@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
+import OriginalHome from './pages/OriginalHome';
 import OddsFirebase from './pages/OddsFirebase';
 import BettingGuide from './pages/BettingGuide';
 import AtlantaHawks from './pages/Teams/AtlantaHawks';
@@ -41,7 +41,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<OriginalHome />} />
         <Route path="/Odds" element={<OddsFirebase />} />
         <Route path="/BettingGuide" element={<BettingGuide />} />
         <Route path="/AtlantaHawks" element={<AtlantaHawks />} />
