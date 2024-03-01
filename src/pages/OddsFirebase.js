@@ -1,32 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import NBAOddsTable from '../components/NBAOddsTable';
-import { collection, getDocs } from 'firebase/firestore';
-import { dbInstance } from '../FirebaseConfig'; // Assuming you have exported dbInstance from FirebaseConfig.js
 import './Odds.css';
 import Sidebar from '../components/Sidebar';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-const Odds = () => {
+const firebaseConfig = {
+  apiKey: 'AIzaSyC3MH-sM-GWN_v3pH9DCdEcweWLCHzYbqI',
+  authDomain: "bestbucketbets.firebaseapp.com",
+  projectId: "bestbucketbets",
+  storageBucket: "bestbucketbets.appspot.com",
+  messagingSenderId: "671250228071",
+  appId: "1:671250228071:web:96a9ad993e767c44cbc5c2",
+  measurementId: "G-9X2PE7B4LS",
+};
+
+const OddsFirebase = () => {
   const [oddsData, setOddsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchNBAOdds = async () => {
+    const fetchData = async () => {
       try {
-        const oddsCollection = collection(dbInstance, 'nbaOdds');
-        const oddsSnapshot = await getDocs(oddsCollection);
-        const data = oddsSnapshot.docs.map(doc => doc.data());
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const oddsCollection = collection(db, 'nbaOdds');
+        const snapshot = await getDocs(oddsCollection);
+        const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setOddsData(data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching NBA odds:', error);
         setError('Error fetching NBA odds. Please try again later.');
-      } finally {
         setLoading(false);
       }
     };
 
-    fetchNBAOdds();
+    fetchData();
   }, []);
 
   return (
@@ -43,4 +55,6 @@ const Odds = () => {
   );
 };
 
-export default Odds;
+export default OddsFirebase;
+
+

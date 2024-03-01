@@ -13,30 +13,11 @@ Features
 //const express = require('express');
 //const cors = require('cors');
 const axios = require('axios');
-const { db, collection, addDoc } = require("./FirebaseConfig");
-const { initializeApp } = require("firebase/app");
-const { getFirestore } = require("firebase/firestore");
-require('dotenv').config({ path: './dotenv.env' });
-
-
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: "bestbucketbets.firebaseapp.com",
-    projectId: "bestbucketbets",
-    storageBucket: "bestbucketbets.appspot.com",
-    messagingSenderId: "671250228071",
-    appId: "1:671250228071:web:96a9ad993e767c44cbc5c2",
-    measurementId: "G-9X2PE7B4LS",
-};
-
-// Initialize Firebase app with the config
-const app = initializeApp(firebaseConfig);
-const dbInstance = getFirestore(app);
+const { db, collection, addDoc, setDoc, Timestamp } = require("./FirebaseConfig");
 
 const getNBAOdds = async () => {
     try {
-        const apiKey = process.env.ODDS_API_KEY; // Retrieve API key from environment variable
+        const apiKey = '0a7555ac68bd116b9b234245c2f3a2a2';
         const sportKey = 'basketball_nba';
         const regions = 'us';
         const markets = 'h2h,spreads,totals';
@@ -95,16 +76,19 @@ const getNBAOdds = async () => {
 const saveToFirestore = async () => {
     try {
         const oddsData = await getNBAOdds();
-        const oddsRef = collection(dbInstance, 'nbaOdds');
-  
-        oddsData.forEach(async gameData => {
+
+        await Promise.all(oddsData.map(async gameData => {
             try {
+                const currentDate = new Date(gameData.commence_time).toISOString().split('T')[0];
+                const [_, month, day] = currentDate.split('-');
+
+                const oddsRef = collection(db, 'nbaOdds', month, day);
                 const docRef = await addDoc(oddsRef, gameData);
-                console.log('Game saved to Firebase with ID:', docRef.id);
+                console.log('Game saved to Firebase for date', currentDate, 'with ID:', docRef.id);
             } catch (error) {
                 console.error('Error saving game to Firebase:', error);
             }
-        });
+        }));
     } catch (error) {
         console.error('Error saving to Firestore:', error);
     }

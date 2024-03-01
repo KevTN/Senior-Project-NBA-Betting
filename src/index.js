@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import OddsFirebase from './pages/OddsFirebase';
@@ -40,45 +40,49 @@ import WashingtonWizards from './pages/Teams/WashingtonWizards';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Route exact path="/" component={Home} />
-      <Route path="/Odds" component={OddsFirebase} />
-      <Route path="/BettingGuide" component={BettingGuide} />
-      <Route path="/AtlantaHawks" component={AtlantaHawks} />
-      <Route path="/BostonCeltics" component={BostonCeltics} />
-      <Route path="/BrooklynNets" component={BrooklynNets} />
-      <Route path="/CharlotteHornets" component={CharlotteHornets} />
-      <Route path="/ChicagoBulls" component={ChicagoBulls} />
-      <Route path="/ClevelandCavaliers" component={ClevelandCavaliers} />
-      <Route path="/DallasMavericks" component={DallasMavericks} />
-      <Route path="/DenverNuggets" component={DenverNuggets} />
-      <Route path="/DetroitPistons" component={DetroitPistons} />
-      <Route path="/GoldenStateWarriors" component={GoldenStateWarriors} />
-      <Route path="/HoustonRockets" component={HoustonRockets} />
-      <Route path="/IndianaPacers" component={IndianaPacers} />
-      <Route path="/LAClippers" component={LAClippers} />
-      <Route path="/LosAngelesLakers" component={LosAngelesLakers} />
-      <Route path="/MemphisGrizzlies" component={MemphisGrizzlies} />
-      <Route path="/MiamiHeat" component={MiamiHeat} />
-      <Route path="/MilwaukeeBucks" component={MilwaukeeBucks} />
-      <Route path="/MinnesotaTimberwolves" component={MinnesotaTimberwolves} />
-      <Route path="/NewOrleansPelicans" component={NewOrleansPelicans} />
-      <Route path="/NewYorkKnicks" component={NewYorkKnicks} />
-      <Route path="/OklahomaCityThunder" component={OklahomaCityThunder} />
-      <Route path="/OrlandoMagic" component={OrlandoMagic} />
-      <Route path="/Philadelphia76ers" component={Philadelphia76ers} />
-      <Route path="/PhoenixSuns" component={PhoenixSuns} />
-      <Route path="/PortlandTrailBlazers" component={PortlandTrailBlazers} />
-      <Route path="/SacramentoKings" component={SacramentoKings} />
-      <Route path="/SanAntonioSpurs" component={SanAntonioSpurs} />
-      <Route path="/TorontoRaptors" component={TorontoRaptors} />
-      <Route path="/UtahJazz" component={UtahJazz} />
-      <Route path="/WashingtonWizards" component={WashingtonWizards} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Odds" element={<OddsFirebase />} />
+        <Route path="/BettingGuide" element={<BettingGuide />} />
+        <Route path="/AtlantaHawks" element={<AtlantaHawks />} />
+        <Route path="/BostonCeltics" element={<BostonCeltics />} />
+        <Route path="/BrooklynNets" element={<BrooklynNets />} />
+        <Route path="/CharlotteHornets" element={<CharlotteHornets />} />
+        <Route path="/ChicagoBulls" element={<ChicagoBulls />} />
+        <Route path="/ClevelandCavaliers" element={<ClevelandCavaliers />} />
+        <Route path="/DallasMavericks" element={<DallasMavericks />} />
+        <Route path="/DenverNuggets" element={<DenverNuggets />} />
+        <Route path="/DetroitPistons" element={<DetroitPistons />} />
+        <Route path="/GoldenStateWarriors" element={<GoldenStateWarriors />} />
+        <Route path="/HoustonRockets" element={<HoustonRockets />} />
+        <Route path="/IndianaPacers" element={<IndianaPacers />} />
+        <Route path="/LAClippers" element={<LAClippers />} />
+        <Route path="/LosAngelesLakers" element={<LosAngelesLakers />} />
+        <Route path="/MemphisGrizzlies" element={<MemphisGrizzlies />} />
+        <Route path="/MiamiHeat" element={<MiamiHeat />} />
+        <Route path="/MilwaukeeBucks" element={<MilwaukeeBucks />} />
+        <Route path="/MinnesotaTimberwolves" element={<MinnesotaTimberwolves />} />
+        <Route path="/NewOrleansPelicans" element={<NewOrleansPelicans />} />
+        <Route path="/NewYorkKnicks" element={<NewYorkKnicks />} />
+        <Route path="/OklahomaCityThunder" element={<OklahomaCityThunder />} />
+        <Route path="/OrlandoMagic" element={<OrlandoMagic />} />
+        <Route path="/Philadelphia76ers" element={<Philadelphia76ers />} />
+        <Route path="/PhoenixSuns" element={<PhoenixSuns />} />
+        <Route path="/PortlandTrailBlazers" element={<PortlandTrailBlazers />} />
+        <Route path="/SacramentoKings" element={<SacramentoKings />} />
+        <Route path="/SanAntonioSpurs" element={<SanAntonioSpurs />} />
+        <Route path="/TorontoRaptors" element={<TorontoRaptors />} />
+        <Route path="/UtahJazz" element={<UtahJazz />} />
+        <Route path="/WashingtonWizards" element={<WashingtonWizards />} />
+      </Routes>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
 reportWebVitals();
+
+
 
 
 

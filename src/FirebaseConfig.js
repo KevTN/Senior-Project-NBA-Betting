@@ -1,9 +1,9 @@
 // FirebaseConfig.js
-const { initializeApp } = require("firebase/app");
-const { getFirestore, collection, addDoc } = require("firebase/firestore");
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: 'AIzaSyC3MH-sM-GWN_v3pH9DCdEcweWLCHzYbqI',
   authDomain: "bestbucketbets.firebaseapp.com",
   projectId: "bestbucketbets",
   storageBucket: "bestbucketbets.appspot.com",
@@ -15,8 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-module.exports = { db, collection, addDoc };
-
-
-
-
+export { db, collection, addDoc, getDocs };
