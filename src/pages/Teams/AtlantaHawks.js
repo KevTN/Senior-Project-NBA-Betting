@@ -3,7 +3,6 @@ import './AtlantaHawks.css';
 import Navbar from '../../components/Navbar';
 import '../../App.css';
 import logo from '../../images/Atlanta-Hawks-Logo.jpg';
-import TeamStatsTable from '../../components/TeamStats/TeamStats-ATL'
 import PlayerRoster from '../../components/RosterTable/PlayerRoster-ATL'
 import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-ATL'
 
@@ -33,7 +32,7 @@ function AtlantaHawks() {
         </div>
       ) : selectedOption === 'Team Statistics' ? (
         <div>
-          <TeamStatsTable /> {/* Display team statistics table when selected option is 'Team Statistics' */}
+          
         </div>
       ) : (
         <div>
