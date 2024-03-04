@@ -1,6 +1,6 @@
 /* AtlantaHawks.css */
 
-.hawks-header{
+.hawks-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,16 +9,16 @@
 }
 
 .hawks-logo {
-  max-width: 150px; /* Adjust the size as needed */
-  max-height: 150px; /* Adjust the size as needed */
-  margin-bottom: 10px; /* Add space between logo and team name */
+  max-width: 150px;
+  max-height: 150px;
+  margin-bottom: 10px;
 }
 
 .hawks-name {
-  color: #fff; /* Add text color as needed */
-  font-size: 60px; /* Adjust the size as needed */
-  font-weight: bold; /* Bold the text */
-  margin: 0; /* Remove default margin */
+  color: #fff; /* Change text color to white */
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .toggle-buttons {
@@ -30,8 +30,8 @@
 .toggle-buttons button {
   margin: 0 10px;
   padding: 10px 20px;
-  background-color: #071824;
-  color: #fff;
+  background-color: #eaeff2;
+  color: #a10202;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -39,9 +39,8 @@
 }
 
 .toggle-buttons button:hover,
-.toggle-buttons button:active { /* Apply styles on hover and when clicked */
-  background-color:  #0c394b;
-  
+.toggle-buttons button:active {
+  background-color: #0c394b;
 }
 
 /* Add animation */
@@ -56,4 +55,11 @@
 
 .toggle-buttons button {
   animation: fadeIn 0.5s ease;
+}
+
+.table-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Change the color as needed */
+  margin-bottom: 10px;
 }
