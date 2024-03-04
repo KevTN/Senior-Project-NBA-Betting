@@ -3,9 +3,9 @@ import './AtlantaHawks.css';
 import Navbar from '../../components/Navbar';
 import '../../App.css';
 import logo from '../../images/Atlanta-Hawks-Logo.jpg';
-import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import TeamStatsTable from '../../components/TeamStats/TeamStats-ATL'
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-ATL'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-ATL'
 
 function AtlantaHawks() {
   const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option
@@ -13,15 +13,16 @@ function AtlantaHawks() {
   const handleOptionChange = (option) => {
     setSelectedOption(option); // Set the selected option
   };
-
   return (
     <div>
-      <Navbar />
+       <Navbar />
+        
+
       <header className="hawks-header">
-        <img src={logo} alt="Atlanta Hawks Logo" className="hawks-logo" />
+      <img src={logo} alt="Atlanta Hawks Logo" className="hawks-logo" />
         <h1 className="hawks-name">Atlanta Hawks</h1>
       </header>
-      <div className="toggle-buttons">
+<div className="toggle-buttons">
         <button onClick={() => handleOptionChange('Team Roster')}>Team Roster</button>
         <button onClick={() => handleOptionChange('Team Statistics')}>Team Statistics</button>
         <button onClick={() => handleOptionChange('Player Statistics')}>Player Statistics</button>
