@@ -3,13 +3,18 @@ const { db, collection, addDoc, setDoc, Timestamp } = require("./FirebaseConfig"
 
 // Define an async function to fetch NBA games
 const getNBAGames = async () => {
-
 const apiKey = '7c5906e5bdmshd4040afab063c22p159dbbjsn6a28437aaf5e';
+const games = [];
+
+const dates = [];
+for (let i = -1; i < 2; i++) {
   const today = new Date();
+  today.setDate(today.getDate() + i);
   const year = today.getFullYear();
-  const month = (today.getMonth() + 1).toString().padStart(2, '0');
-  const day = today.getDate().toString().padStart(2, '0');
-  const date = `${year}-${month}-${day}`;
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+  const date = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+  dates.push(date);
 
   const options = {
     method: 'GET',
@@ -43,7 +48,8 @@ const apiKey = '7c5906e5bdmshd4040afab063c22p159dbbjsn6a28437aaf5e';
         return gameData;
       });
 
-      return formattedData;
+      // Push formatted data into games array
+      games.push(...formattedData);
     } else {
       console.error('Unexpected response format:', response.data);
       throw new Error('Unexpected response format');
@@ -52,27 +58,33 @@ const apiKey = '7c5906e5bdmshd4040afab063c22p159dbbjsn6a28437aaf5e';
     console.error('Error fetching NBA games:', error);
     throw error;
   }
+}
+return games;
 };
 
 const saveToFirestore = async () => {
-    try {
+  try {
       const gamesData = await getNBAGames();
-      const today = new Date();
-      const month = today.getMonth() + 1; // Month is zero-based, so add 1
-      const day = today.getDate();
-  
-      await Promise.all(gamesData.map(async gameData => {
-        try {
-            const gamesRef = collection(db, 'nbaGames', String(month), String(day));
-          const docRef = await addDoc(gamesRef, gameData);
-          console.log('Game saved to Firebase with ID:', docRef.id);
-        } catch (error) {
-          console.error('Error saving game to Firebase:', error);
-        }
-      }));
-    } catch (error) {
+      const date = new Date();
+      const month = date.getMonth() + 1; // Month is zero-based, so add 1
+      const today = date.getDate()
+      const days = [String(today - 1), String(today), String(today + 1)]; // Corrected spelling of 'tomorrow'
+
+      for (let i = 0; i < days.length; i++) {
+        const gamesRef = collection(db, 'nbaGames', String(month), days[i]); // Use square brackets
+          await Promise.all(gamesData.map(async gameData => {
+              try {
+                  const docRef = await addDoc(gamesRef, gameData);
+                  console.log('Game saved to Firebase with ID:', docRef.id);
+              } catch (error) {
+                  console.error('Error saving game to Firebase:', error);
+              }
+          }));
+      }
+  } catch (error) {
       console.error('Error saving to Firestore:', error);
-    }
-  };
-  
-  saveToFirestore();
+  }
+};
+
+saveToFirestore();
+
