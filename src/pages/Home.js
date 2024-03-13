@@ -6,7 +6,7 @@ import Today from '../components/TodayGames';
 import Tomorrow from '../components/TomorrowGames';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import './OddsFirebase.css'; // Import the CSS file for styling
+import './Home.css'; // Import the CSS file for styling
 
 const Home = () => {
   const [data, setData] = useState({
@@ -31,15 +31,19 @@ const Home = () => {
       };
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-      const date = new Date();
-      const today = new Date(date);
-      const tomorrow = new Date(date);
-      today.setDate(today.getDate() + 1);
-      tomorrow.setDate(tomorrow.getDate() + 2);
+      const today = new Date();
+
+// Extract year, month, and day
+const month = today.getMonth() + 1;
+const day = today.getDate();
+const tomorrow = today.getDate() + 1;
+const yesterday = today.getDate() -1;
+
       
-      const yesterdayCollection = collection(db, "nbaGames", String(date.getMonth() + 1), String(date.getDate()));
-      const todayCollection = collection(db, "nbaGames", String(today.getMonth() + 1), String(today.getDate()));
-      const tomorrowCollection = collection(db, "nbaGames", String(tomorrow.getMonth() + 1), String(tomorrow.getDate()));
+      
+      const yesterdayCollection = collection(db, "nbaGames", String(month), String(yesterday));
+      const todayCollection = collection(db, "nbaGames", String(month), String(day));
+      const tomorrowCollection = collection(db, "nbaGames", String(month), String(tomorrow));
       
       try {
         const [yesterdayData, todayData, tomorrowData] = await Promise.all([

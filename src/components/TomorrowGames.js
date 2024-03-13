@@ -25,7 +25,6 @@ const TomorrowGames = ({ gamesData }) => {
             <TableCell className="away-head" align="center">Away</TableCell>
             <TableCell className="home-head" align="center">Home</TableCell>
             <TableCell className="time-head" align="center">Time</TableCell>
-            <TableCell className="final-head" align="center">Score</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -34,9 +33,6 @@ const TomorrowGames = ({ gamesData }) => {
               <TableCell className="away-team" align="center">{game.teams.visitors?.nickname}</TableCell>
               <TableCell className="home-cell" align="center">{game.teams.home?.nickname}</TableCell>
               <TableCell className="time-cell" align="center">{new Date(game.date.start).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}</TableCell>
-              <TableCell className="score-cell" align="center">
-                {`${game.scores.visitors.points} - ${game.scores.home.points}`}
-              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -46,5 +42,6 @@ const TomorrowGames = ({ gamesData }) => {
 };
 
 export default TomorrowGames;
+
 
 
