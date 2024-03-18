@@ -1,26 +1,81 @@
-/* TeamStatsTable.css */
+/* Adjust the font for table headers */
+.table-header th {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0px;
+  background-color: #071824;
+  text-align: center;
+  font-family: Arial, sans-serif; 
+}
 
-/* Table Title */
-.table-title {
-    color:rgb(247, 244, 244);
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
-  /* Common styles for all tables */
-  .table-container {
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
+/* Style for table rows */
+.table-row td{
+  color: #e9ebedd7;
+  background-color: #071824;
+  font-family: Arial, sans-serif; 
+  text-align: center;
+  font-size: 16px;
+  padding: 20px; 
+  color: #e9ebedd7;
+  border-radius: 2%;
+  border-color: #071824;
+}
 
- 
-  .record-table{
-  }
+/* Style for table cells */
+.table-cell th {
+  background-color: #071824;
+  font-family: Arial, sans-serif; 
+}
+
+/* Style for main header */
+.mainHeader {
+  color: #e9ebedd7;
+  background-color: #071824;
+  font-family: Arial, sans-serif; 
+  padding: 10px; 
+  font-weight: bold; 
+  font-family: Arial, sans-serif; 
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 0px;
   
-  .record-cell{
-    background-color: #fefdfd;
-  }
-  
-  
-  
+}
+
+/* Style for sub headers */
+.subHeader {
+  color: #e9ebedd7;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 14px;
+  margin-bottom: 5px;
+  background-color: #071824;
+}
+
+/* Style for table container */
+.table-container th {
+  max-width: 200px;
+  color: #e9ebedd7;
+  background-color: #1a2c38;
+  font-family: Arial, sans-serif; 
+  text-align: center;
+  font-size: 18px; 
+  padding: 10px; 
+}
+
+/* Increase table size */
+.team-stats-container {
+  max-width: 2000px; /* Increase max width */
+}
+
+.record {
+  color: #e9ebedd7;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: #071824;
+}

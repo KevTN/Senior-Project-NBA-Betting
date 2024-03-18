@@ -4,7 +4,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import Sidebar from './Sidebar';
-import logo from '../images/logo.png';
+//import logo from '../../../../public/media/logo.png';
+;
 
 const Navbar = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const Navbar = () => {
       <div className="centeredContent">
         <h1 className="logo">
           <Link to="/">
-            <img src={logo} alt="Logo" className="logosize" />
+          <img src="%PUBLIC_URL%/images/logo.png" alt="Logo" />
           </Link>
         </h1>
         <Sidebar />
