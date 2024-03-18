@@ -5,8 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Brooklyn-Nets-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-BKN'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-BKN'
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 

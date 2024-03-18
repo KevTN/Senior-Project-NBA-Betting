@@ -71,7 +71,7 @@ export default function PlayerSeasonAverages() {
 
   const fetchPlayersSeasonAverages = async () => {
     try {
-      const playerIDs = [3547256, 53, 56677838, 83, 666564, 3547297, 56677806, 38017689, 666656, 17896040, 4197387, 56677855, 666754, 301, 319, 334, 3547244, 490];
+      const playerIDs = [17896028, 132, 151, 56677867, 666577, 3547258, 191, 38017679, 228, 247, 257, 17554004, 56677840, 329, 379, 56677859, 666950, 24489167];
       const responses = await Promise.all(playerIDs.map(id => axios.get(`https://api.balldontlie.io/v1/season_averages?player_ids[]=${id}&season=2023`, {
         headers: {
           Authorization: '49ea66ef-b246-4f04-9c73-ebde5f4c8a12'
@@ -92,7 +92,7 @@ export default function PlayerSeasonAverages() {
   useEffect(() => {
     const fetchPlayersInfo = async () => {
       try {
-        const playerIDs = [3547256, 53, 56677838, 83, 666564, 3547297, 56677806, 38017689, 666656, 17896040, 4197387, 56677855, 666754, 301, 319, 334, 3547244, 490];
+        const playerIDs = [17896028, 132, 151, 56677867, 666577, 3547258, 191, 38017679, 228, 247, 257, 17554004, 56677840, 329, 379, 56677859, 666950, 24489167];
         const responses = await Promise.all(playerIDs.map(id =>
           axios.get(`https://api.balldontlie.io/v1/players?player_ids[]=${id}`, {
             headers: {
@@ -121,7 +121,7 @@ export default function PlayerSeasonAverages() {
     } else if (tabValue === 1) {
       const fetchPrevious30DaysAverages = async () => {
         try {
-          const playerIDs = [3547256, 53, 56677838, 83, 666564, 3547297, 56677806, 38017689, 666656, 17896040, 4197387, 56677855, 666754, 301, 319, 334, 3547244, 490];
+          const playerIDs = [17896028, 132, 151, 56677867, 666577, 3547258, 191, 38017679, 228, 247, 257, 17554004, 56677840, 329, 379, 56677859, 666950, 24489167];
           const startDate = new Date();
           startDate.setDate(startDate.getDate() - 30); // Get the date 30 days ago
           const responses = await Promise.all(playerIDs.map(async (id) => {

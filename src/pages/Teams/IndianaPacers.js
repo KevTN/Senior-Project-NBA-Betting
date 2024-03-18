@@ -5,8 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Indiana-Pacers-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-IND'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-IND'
 
 function IndianaPacers() {
   const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option

@@ -5,8 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/LA-Clippers-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-LAC'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-LAC'
 
 function LAClippers() {
   const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option

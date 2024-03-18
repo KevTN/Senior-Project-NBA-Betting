@@ -7,8 +7,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Chicago-Bulls-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-CHI'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-CHI'
 
 function ChicagoBulls() {
   const [teamStatsData, setTeamStatsData] = useState([]);

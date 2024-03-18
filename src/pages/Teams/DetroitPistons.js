@@ -5,8 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Detroit-Pistons-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-DET'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-DET'
 
 function DetroitPistons() {
   const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option

@@ -5,8 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Denver-Nuggets-Logo.png';
 import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-DEN'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-DEN'
 
 function DenverNuggets() {
   const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option
