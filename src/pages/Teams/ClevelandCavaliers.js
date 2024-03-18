@@ -5,8 +5,8 @@ import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Cleveland-Cavaliers-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-CLE'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-CLE'
 
 function ClevelandCavaliers() {
   const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option

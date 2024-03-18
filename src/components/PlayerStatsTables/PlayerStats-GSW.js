@@ -71,7 +71,7 @@ export default function PlayerSeasonAverages() {
 
   const fetchPlayersSeasonAverages = async () => {
     try {
-      const playerIDs = [3547256, 53, 56677838, 83, 666564, 3547297, 56677806, 38017689, 666656, 17896040, 4197387, 56677855, 666754, 301, 319, 334, 3547244, 490];
+      const playerIDs = [115, 17896070, 185, 56677799, 17553979, 282, 17553992, 367, 2189, 56677858, 45658838, 398, 57875092, 407, 795959473, 443, 475];
       const responses = await Promise.all(playerIDs.map(id => axios.get(`https://api.balldontlie.io/v1/season_averages?player_ids[]=${id}&season=2023`, {
         headers: {
           Authorization: '49ea66ef-b246-4f04-9c73-ebde5f4c8a12'
@@ -92,7 +92,7 @@ export default function PlayerSeasonAverages() {
   useEffect(() => {
     const fetchPlayersInfo = async () => {
       try {
-        const playerIDs = [3547256, 53, 56677838, 83, 666564, 3547297, 56677806, 38017689, 666656, 17896040, 4197387, 56677855, 666754, 301, 319, 334, 3547244, 490];
+        const playerIDs = [115, 17896070, 185, 56677799, 17553979, 282, 17553992, 367, 2189, 56677858, 45658838, 398, 57875092, 407, 795959473, 443, 475];
         const responses = await Promise.all(playerIDs.map(id =>
           axios.get(`https://api.balldontlie.io/v1/players?player_ids[]=${id}`, {
             headers: {
@@ -121,7 +121,7 @@ export default function PlayerSeasonAverages() {
     } else if (tabValue === 1) {
       const fetchPrevious30DaysAverages = async () => {
         try {
-          const playerIDs = [3547256, 53, 56677838, 83, 666564, 3547297, 56677806, 38017689, 666656, 17896040, 4197387, 56677855, 666754, 301, 319, 334, 3547244, 490];
+          const playerIDs = [115, 17896070, 185, 56677799, 17553979, 282, 17553992, 367, 2189, 56677858, 45658838, 398, 57875092, 407, 795959473, 443, 475];
           const startDate = new Date();
           startDate.setDate(startDate.getDate() - 30); // Get the date 30 days ago
           const responses = await Promise.all(playerIDs.map(async (id) => {

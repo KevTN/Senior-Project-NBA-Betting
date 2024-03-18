@@ -1,0 +1,47 @@
+const axios = require('axios');
+const { db, collection, addDoc, } = require("./FirebaseConfig");
+
+// Authorization code
+const authCode = '49ea66ef-b246-4f04-9c73-ebde5f4c8a12';
+
+// Function to fetch player data from BallDontLie API
+async function fetchPlayerData(playerId) {
+  try {
+    // Make GET request to the API endpoint with player ID
+    const response = await axios.get(`https://api.balldontlie.io/v1/season_averages?player_ids[]=${playerId}&season=2023`, {
+      headers: {
+        Authorization: authCode
+      }
+    });
+
+    // Return the player data from the response
+    return response.data;
+  } catch (error) {
+    // Handle errors
+    console.error('Error fetching player data:', error);
+    throw error; // Optional: re-throw the error to handle it outside this function
+  }
+}
+
+// Function to add player data to Firestore collection
+async function addPlayerToFirestore(playerId) {
+  try {
+    // Fetch player data from BallDontLie API
+    const playerData = await fetchPlayerData(playerId);
+
+    // Add player data to Firestore collection
+    await addDoc(collection(db, 'players'), { playerId, playerData });
+
+    console.log('Player data added to Firestore successfully!');
+  } catch (error) {
+    // Handle errors
+    console.error('Error adding player data to Firestore:', error);
+  }
+}
+
+// Example usage: Fetch data for player with ID 53 and add it to Firestore
+const hawksPlayerIds = [3547256, 53, 56677838, 83, 666564, 3547297, 56677806, 38017689, 666656, 17896040, 4197387, 56677855, 666754, 301, 319, 334, 3547244, 490];
+
+hawksPlayerIds.forEach(playerId => {
+  addPlayerToFirestore(playerId);
+});

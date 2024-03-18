@@ -4,8 +4,8 @@ import Navbar from '../../components/Navbar';
 import '../../App.css';
 import logo from '../../images/Boston-Celtics-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable'
-import PlayerRoster from '../../components/PlayerRoster'
-import PlayerStats from '../../components/PlayerStats'
+import PlayerRoster from '../../components/RosterTable/PlayerRoster-BOS'
+import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-BOS'
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
