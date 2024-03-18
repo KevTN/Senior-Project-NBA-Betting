@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CharlotteHornets.css';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
@@ -7,14 +7,52 @@ import logo from '../../images/Charlotte-Hornets-Logo.jpg';
 import TeamStatsTable from '../../components/TeamStatsTable';
 import PlayerRoster from '../../components/PlayerRoster';
 import PlayerStats from '../../components/PlayerStats';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 function CharlotteHornets() {
-  const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option
+  const [teamStatsData, setTeamStatsData] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedOption, setSelectedOption] = useState('Team Statistics');
+  //const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option
+  
+  useEffect(() => {
+    const firebaseConfig = {
+      apiKey: 'AIzaSyC3MH-sM-GWN_v3pH9DCdEcweWLCHzYbqI',
+      authDomain: "bestbucketbets.firebaseapp.com",
+      projectId: "bestbucketbets",
+      storageBucket: "bestbucketbets.appspot.com",
+      messagingSenderId: "671250228071",
+      appId: "1:671250228071:web:96a9ad993e767c44cbc5c2",
+      measurementId: "G-9X2PE7B4LS",
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+      const teamStatsCollection = collection(db, "nbaTeamStats", 'Charlotte Hornets', 'stats');
+
+      getDocs(teamStatsCollection)
+      .then((querySnapshot) => {
+        const data = [];
+        querySnapshot.forEach((doc) => {
+          data.push(doc.data());
+        });
+        setTeamStatsData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setError("Error fetching NBA odds. Please try again later.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
 
   const handleOptionChange = (option) => {
     setSelectedOption(option); // Set the selected option
   };
-
   return (
     <div>
       <Navbar />
@@ -23,26 +61,11 @@ function CharlotteHornets() {
       <header className="hornets-header">
         <img src={logo} alt="Charlotte Hornets Logo" className="hornets-logo" />
         <h1 className="hornets-name">Charlotte Hornets</h1>
-      </header>
-      <div className="toggle-buttons">
-        <button 
-          className={selectedOption === 'Team Roster' ? 'active' : ''}
-          onClick={() => handleOptionChange('Team Roster')}
-        >
-          Team Roster
-        </button>
-        <button 
-          className={selectedOption === 'Team Statistics' ? 'active' : ''}
-          onClick={() => handleOptionChange('Team Statistics')}
-        >
-          Team Statistics
-        </button>
-        <button 
-          className={selectedOption === 'Player Statistics' ? 'active' : ''}
-          onClick={() => handleOptionChange('Player Statistics')}
-        >
-          Player Statistics
-        </button>
+        </header>
+<div className="toggle-buttons">
+        <button onClick={() => handleOptionChange('Team Roster')}>Team Roster</button>
+        <button onClick={() => handleOptionChange('Team Statistics')}>Team Statistics</button>
+        <button onClick={() => handleOptionChange('Player Statistics')}>Player Statistics</button>
       </div>
       {selectedOption === 'Team Roster' ? (
         <div>
@@ -50,7 +73,7 @@ function CharlotteHornets() {
         </div>
       ) : selectedOption === 'Team Statistics' ? (
         <div>
-          <TeamStatsTable /> {/* Display team statistics table when selected option is 'Team Statistics' */}
+          <TeamStatsTable teamStatsData = {teamStatsData} /> 
         </div>
       ) : (
         <div>

@@ -1,17 +1,3 @@
-/*APIOdds is being used to fetch NBA betting odds from the external API 'the-odds-api'
-it also is being used to process the data and provide a simplified and filtered version
-of the odds through custom API endpoints, then the server listens for requests on port 3001. 
-
-Features
--Express server setup
--Cors configuration
--NBA odds API Request
--Data ProcessingFz
--Express Route for NBA odds
--ServerStart*/
-
-//const express = require('express');
-//const cors = require('cors');
 const axios = require('axios');
 const { db, collection, addDoc, setDoc, Timestamp } = require("./FirebaseConfig");
 
@@ -95,6 +81,8 @@ const saveToFirestore = async () => {
 };
 
 saveToFirestore();
+
+
 
 
 /* Define the route handler for Get requests to /api/nba-odds
