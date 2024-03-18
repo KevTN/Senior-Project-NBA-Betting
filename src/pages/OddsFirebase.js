@@ -22,11 +22,7 @@ const OddsFirebase = () => {
     };
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    const date = new Date();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based, so add 1
-    const today = date.getDate().toString().padStart(2, '0');
-    const oddsCollection = collection(db, "nbaOdds", month, today);
-    
+    const oddsCollection = collection(db, "nbaOdds", "03", "08");
 
     getDocs(oddsCollection)
       .then((querySnapshot) => {

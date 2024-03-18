@@ -4,54 +4,69 @@ import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 import '../../App.css';
 import logo from '../../images/Charlotte-Hornets-Logo.jpg';
-import TeamStatsTable from '../../components/TeamStatsTable';
-import PlayerRoster from '../../components/PlayerRoster';
-import PlayerStats from '../../components/PlayerStats';
+// import TeamStatsTable from '../../components/TeamStatsTable';
+// import PlayerRoster from '../../components/PlayerRoster';
+// import PlayerStats from '../../components/PlayerStats';
+
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-function CharlotteHornets() {
-  const [teamStatsData, setTeamStatsData] = useState([]);
-
+const CharlotteHornets = () => {
+  const [data, setData] = useState({
+    teamStats: [],
+    teamRoster: [],
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedOption, setSelectedOption] = useState('Team Statistics');
-  //const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option
-  
-  useEffect(() => {
-    const firebaseConfig = {
-      apiKey: 'AIzaSyC3MH-sM-GWN_v3pH9DCdEcweWLCHzYbqI',
-      authDomain: "bestbucketbets.firebaseapp.com",
-      projectId: "bestbucketbets",
-      storageBucket: "bestbucketbets.appspot.com",
-      messagingSenderId: "671250228071",
-      appId: "1:671250228071:web:96a9ad993e767c44cbc5c2",
-      measurementId: "G-9X2PE7B4LS",
-    };
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-      const teamStatsCollection = collection(db, "nbaTeamStats", 'Charlotte Hornets', 'stats');
+  const [selectedOption, setSelectedOption] = useState('Team Roster');
 
-      getDocs(teamStatsCollection)
-      .then((querySnapshot) => {
-        const data = [];
-        querySnapshot.forEach((doc) => {
-          data.push(doc.data());
-        });
-        setTeamStatsData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setError("Error fetching NBA odds. Please try again later.");
-      })
-      .finally(() => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const firebaseConfig = {
+        apiKey: 'AIzaSyC3MH-sM-GWN_v3pH9DCdEcweWLCHzYbqI',
+        authDomain: 'bestbucketbets.firebaseapp.com',
+        projectId: 'bestbucketbets',
+        storageBucket: 'bestbucketbets.appspot.com',
+        messagingSenderId: '671250228071',
+        appId: '1:671250228071:web:96a9ad993e767c44cbc5c2',
+        measurementId: 'G-9X2PE7B4LS',
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const date = new Date();
+      const teamStats = collection(db, 'nbaGames', String(date.getMonth() + 1), 'CHA');
+      const teamRoster = collection(db, 'nbaRoster', String(date.getMonth() + 1), 'CHA');
+      
+      try {
+        const [statsData, rosterData] = await Promise.all([
+          getDocs(teamStats),
+          getDocs(teamRoster)
+        ]);
+
+        const data = {
+          stats: [],
+          roster: []
+        };
+
+        rosterData.forEach(doc => data.roster.push(doc.data()));
+        statsData.forEach(doc => data.stats.push(doc.data()));
+
+        setData(data);
         setLoading(false);
-      });
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+        setError('Error fetching NBA odds. Please try again later.');
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
 
   const handleOptionChange = (option) => {
-    setSelectedOption(option); // Set the selected option
+    setSelectedOption(option); 
   };
   return (
     <div>
@@ -61,23 +76,23 @@ function CharlotteHornets() {
       <header className="hornets-header">
         <img src={logo} alt="Charlotte Hornets Logo" className="hornets-logo" />
         <h1 className="hornets-name">Charlotte Hornets</h1>
-        </header>
-<div className="toggle-buttons">
+      </header>
+      <div className="toggle-buttons">
         <button onClick={() => handleOptionChange('Team Roster')}>Team Roster</button>
         <button onClick={() => handleOptionChange('Team Statistics')}>Team Statistics</button>
         <button onClick={() => handleOptionChange('Player Statistics')}>Player Statistics</button>
       </div>
       {selectedOption === 'Team Roster' ? (
         <div>
-          <PlayerRoster /> {/* Display player roster when selected option is 'Team Roster' */}
+          {/* <PlayerRoster /> */}
         </div>
       ) : selectedOption === 'Team Statistics' ? (
         <div>
-          <TeamStatsTable teamStatsData = {teamStatsData} /> 
+          {/* <TeamStatsTable /> */}
         </div>
       ) : (
         <div>
-          <PlayerStats /> {/* Display player statistics when selected option is 'Player Statistics' */}
+          {/* <PlayerStats /> */}
         </div>
       )}
     </div>

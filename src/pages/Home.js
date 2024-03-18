@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
-import YesterdayGames from '../components/YesterdayGames';
+import YesterdayGames from '../components/YesterdayGames'; // Import YesterdayGames component
 import Today from '../components/TodayGames';
 import Tomorrow from '../components/TomorrowGames';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import './Home.css'; 
+import './Home.css'; // Import the CSS file for styling
 
 const Home = () => {
   const [data, setData] = useState({
@@ -37,15 +37,14 @@ const Home = () => {
 const month = today.getMonth() + 1;
 const day = today.getDate();
 const tomorrow = today.getDate() + 1;
-const yesterday = today.getDate() - 1;
+const yesterday = today.getDate() -1;
 
       
-      //gets the collection from the database by date. 
+      
       const yesterdayCollection = collection(db, "nbaGames", String(month), String(yesterday));
       const todayCollection = collection(db, "nbaGames", String(month), String(day));
       const tomorrowCollection = collection(db, "nbaGames", String(month), String(tomorrow));
       
-      //pulling from firebase
       try {
         const [yesterdayData, todayData, tomorrowData] = await Promise.all([
           getDocs(yesterdayCollection),

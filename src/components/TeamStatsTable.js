@@ -1,140 +1,135 @@
-import React from 'react';
-import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper, Typography } from '@mui/material';
-import './TeamStatsTable.css'; // Import the CSS file
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import './TeamStatsTable.css';
 
-const TeamStatsTable = ({ teamStatsData }) => {
-  console.log("teamStatsData:", teamStatsData); // Log the teamStatsData to console
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 20,
+  },
+}));
 
-  const renderOffenseTable = (data) => {
-    if (!data || data.length === 0) {
-      return (
-        <Typography variant="body1" gutterBottom>
-          NA
-        </Typography>
-      );
-    }
-  
-    return (
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>PTS</TableCell>
-              <TableCell>FG%</TableCell>
-              <TableCell>FG</TableCell>
-              <TableCell>FGA</TableCell>
-              <TableCell>3PA</TableCell>
-              <TableCell>3P</TableCell>
-              <TableCell>3P%</TableCell>
-              <TableCell>AST</TableCell>
-              <TableCell>ORB</TableCell>
-              <TableCell>FTA</TableCell>
-              <TableCell>FT%</TableCell>
-              <TableCell>FT</TableCell>
-              <TableCell>TO</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((game, index) => (
-              <TableRow key={index} className="table-row">
-                <TableCell >{game['Per Game']['PTS']}</TableCell>
-                <TableCell >{game['Per Game']['FG%']}</TableCell>
-                <TableCell >{game['Per Game']['FG']}</TableCell>
-                <TableCell >{game['Per Game']['FGA']}</TableCell>
-                <TableCell >{game['Per Game']['3PA']}</TableCell>
-                <TableCell >{game['Per Game']['3P']}</TableCell>
-                <TableCell >{game['Per Game']['3P%']}</TableCell>
-                <TableCell >{game['Per Game']['AST']}</TableCell>
-                <TableCell >{game['Per Game']['ORB']}</TableCell>
-                <TableCell >{game['Per Game']['FTA']}</TableCell>
-                <TableCell >{game['Per Game']['FT%']}</TableCell>
-                <TableCell >{game['Per Game']['FT']}</TableCell>
-                <TableCell >{game['Per Game']['TOV']}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    );
-  };
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 
-  const renderDefenseTable = (data) => {
-    if (!data || data.length === 0) {
-      return (
-        <Typography variant="body1" gutterBottom>
-          NA
-        </Typography>
-      );
-    }
-  
-    return (
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Opp. PPG</TableCell>
-              <TableCell>STL</TableCell>
-              <TableCell>BLK</TableCell>
-              <TableCell>DRB</TableCell>
-              <TableCell>FG%</TableCell>
-              <TableCell>3P%</TableCell>
-              <TableCell>FTA</TableCell>
-              <TableCell>TO</TableCell>
-              <TableCell>Fouls</TableCell>
-              <TableCell>Arena</TableCell>
-              <TableCell>Avg Attendence</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((game, index) => (
-              <TableRow key={index} className="table-row">
-                <TableCell >{game['Per Game Opponent']['PTS']}</TableCell>
-                <TableCell >{game['Per Game']['STL']}</TableCell>
-                <TableCell >{game['Per Game']['BLK']}</TableCell>
-                <TableCell >{game['Per Game']['DRB']}</TableCell>
-                <TableCell >{game['Per Game Opponent']['FG%']}</TableCell>
-                <TableCell >{game['Per Game Opponent']['3P%']}</TableCell>
-                <TableCell >{game['Per Game Opponent']['FTA']}</TableCell>
-                <TableCell >{game['Per Game Opponent']['TOV']}</TableCell>
-                <TableCell >{game['Per Game']['PF']}</TableCell>
-                <TableCell>{game['Advanced']['Arena']}</TableCell>
-                <TableCell>{game['Advanced']['Attend./G']}</TableCell>
-                
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    );
-  };
+const recordColumns = ['Away ', 'Home ', 'West', 'East', 'Division', 'Opp Ov.500', 'Opp U.500','Rank'];
+const offenseColumns = ['PPG  ', 'FG%  ', '3PT%', 'FT%', 'Off Reb PG', '3pt PG', 'Ast PG','T.O PG','Off. Rank'];
+const defenseColumns = ['Def Rebs','Steals', 'Blocks', 'Pnt. Allow. PG.', 'Def. 3%', 'Def. FG%', 'Defense Eff.'];
 
+function createData(...values) {
+  const data = {};
+  recordColumns.forEach((column, index) => {
+    data[column] = values[index];
+  });
+  offenseColumns.forEach((column, index) => {
+    data[column] = values[recordColumns.length + index];
+  });
+  defenseColumns.forEach((column, index) => {
+    data[column] = values[recordColumns.length + offenseColumns.length + index];
+  });
+  return data;
+}
+
+const rows = [
+  createData('0-0', '0-0', '0-0', '0-0', '0-0', '0-0', '0-0', '0-0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0'),
+];
+
+const title = 'Team Statistics';
+
+export default function CustomizedTables() {
   return (
-    <div className="team-stats-container">
-      <h1 className="mainHeader">2022-23 Team Stats</h1>
-      {teamStatsData.map((game, index) => (
-        <div key={index} className="record">
-          Record: {game['Advanced']?.['W']}-{game['Advanced']?.['L']}
-        </div>
-      ))}
-      <div className="subHeader">Offense</div>
-      <div className="table-container">
-        {renderOffenseTable(teamStatsData)}
-      </div>
-      {/* Subheader for defense */}
-      <div className="subHeader">Defense</div>
-      {/* Defense table */}
-      <div className="table-container">
-        {renderDefenseTable(teamStatsData)}
-      </div>
-    </div>
+    <React.Fragment>
+      {/* Header for the entire table */}
+      <div className="table-title">{title}</div>
+
+      {/* Record Table */}
+      <TableContainer component={Paper} className="table-container record-table">
+        <Table sx={{ minWidth: 700 }} aria-label="record table" className="record-table">
+          <TableHead>
+            <TableRow>
+            <StyledTableCell className="record-cell">Team Record</StyledTableCell>
+              {recordColumns.map((column) => (
+                <StyledTableCell key={column} align="right" className="record-cell">{column}</StyledTableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row, rowIndex) => (
+              <StyledTableRow key={rowIndex}>
+                <StyledTableCell component="th" scope="row" className="record-cell">0-0</StyledTableCell>
+                {recordColumns.map((column) => (
+                  <StyledTableCell key={column} align="right" className="record-cell">{row[column]}</StyledTableCell>
+                ))}
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      
+
+      {/* Offense Table */}
+      <TableContainer component={Paper} className="table-container offense-table">
+        <Table sx={{ minWidth: 700 }} aria-label="offense table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell className="offense-cell">Offense Rank</StyledTableCell>
+              {offenseColumns.map((column) => (
+                <StyledTableCell key={column} align="right" className="offense-cell">{column}</StyledTableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row, rowIndex) => (
+              <StyledTableRow key={rowIndex}>
+                <StyledTableCell component="th" scope="row" className="offense-cell">1st</StyledTableCell>
+                {offenseColumns.map((column) => (
+                  <StyledTableCell key={column} align="right" className="offense-cell">{row[column]}</StyledTableCell>
+                ))}
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+      {/* Defense Table */}
+      <TableContainer component={Paper} className="table-container defense-table">
+        <Table sx={{ minWidth: 700 }} aria-label="defense table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell className="defense-cell">Defense Rank</StyledTableCell>
+              {defenseColumns.map((column) => (
+                <StyledTableCell key={column} align="right" className="defense-cell">{column}</StyledTableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row, rowIndex) => (
+              <StyledTableRow key={rowIndex}>
+                <StyledTableCell component="th" scope="row" className="defense-cell">1st</StyledTableCell>
+                {defenseColumns.map((column) => (
+                  <StyledTableCell key={column} align="right" className="defense-cell">{row[column]}</StyledTableCell>
+                ))}
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </React.Fragment>
   );
-};
-
-export default TeamStatsTable;
-
- 
-
-
-
-
-
+}

@@ -5,48 +5,63 @@ import '../../App.css';
 import logo from '../../images/Atlanta-Hawks-Logo.jpg';
 import PlayerRoster from '../../components/RosterTable/PlayerRoster-ATL'
 import PlayerStats from '../../components/PlayerStatsTables/PlayerStats-ATL'
-import TeamStatsTable from '../../components/TeamStatsTable'
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 const AtlantaHawks = () => {
-  const [teamStatsData, setTeamStatsData] = useState([]);
-
+  const [data, setData] = useState({
+    teamStats: [],
+    teamRoster: [],
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedOption, setSelectedOption] = useState('Team Statistics');
+  const [selectedOption, setSelectedOption] = useState('TeamStats');
   //const [selectedOption, setSelectedOption] = useState('Team Roster'); // State to manage the selected option
   
   useEffect(() => {
-    const firebaseConfig = {
-      apiKey: 'AIzaSyC3MH-sM-GWN_v3pH9DCdEcweWLCHzYbqI',
-      authDomain: "bestbucketbets.firebaseapp.com",
-      projectId: "bestbucketbets",
-      storageBucket: "bestbucketbets.appspot.com",
-      messagingSenderId: "671250228071",
-      appId: "1:671250228071:web:96a9ad993e767c44cbc5c2",
-      measurementId: "G-9X2PE7B4LS",
-    };
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-      const teamStatsCollection = collection(db, "nbaTeamStats", 'Atlanta Hawks', 'stats');
+    const fetchData = async () => {
+      const firebaseConfig = {
+        apiKey: 'AIzaSyC3MH-sM-GWN_v3pH9DCdEcweWLCHzYbqI',
+        authDomain: "bestbucketbets.firebaseapp.com",
+        projectId: "bestbucketbets",
+        storageBucket: "bestbucketbets.appspot.com",
+        messagingSenderId: "671250228071",
+        appId: "1:671250228071:web:96a9ad993e767c44cbc5c2",
+        measurementId: "G-9X2PE7B4LS",
+      };
 
-      getDocs(teamStatsCollection)
-      .then((querySnapshot) => {
-        const data = [];
-        querySnapshot.forEach((doc) => {
-          data.push(doc.data());
-        });
-        setTeamStatsData(data);
-      })
-      .catch((error) => {
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const date = new Date();
+      const teamStats = collection(db, "nbaGames", String(date.getMonth() + 1),'ATL');
+      const teamRoster = collection(db, "nbaRoster", String(date.getMonth() + 1),'ATL');
+      //const playerStats = collection(db, "nbaRoster", String(tomorrow.getMonth() + 1), String(tomorrow.getDate()));
+      
+      try {
+        const [statsData, rosterData] = await Promise.all([
+          getDocs(teamStats),
+          getDocs(teamRoster)
+        ]);
+
+        const data = {
+          stats: [],
+          roster: []
+        };
+
+        rosterData.forEach(doc => data.roster.push(doc.data()));
+        statsData.forEach(doc => data.stats.push(doc.data()));
+
+        setData(data);
+        setLoading(false);
+      } catch (error) {
         console.error("Error fetching data: ", error);
         setError("Error fetching NBA odds. Please try again later.");
-      })
-      .finally(() => {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
 
@@ -73,7 +88,7 @@ const AtlantaHawks = () => {
         </div>
       ) : selectedOption === 'Team Statistics' ? (
         <div>
-          <TeamStatsTable teamStatsData = {teamStatsData} /> 
+          
         </div>
       ) : (
         <div>
@@ -85,38 +100,3 @@ const AtlantaHawks = () => {
 }
 
 export default AtlantaHawks;
-
-//grabbing multiple api's 
-    /*const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const date = new Date();
-      const teamStats = collection(db, "nbaGames",'Atlanta Hawks','stats');
-      //const teamRoster = collection(db, "nbaRoster", String(date.getMonth() + 1),'ATL');
-      //const playerStats = collection(db, "nbaRoster", String(tomorrow.getMonth() + 1), String(tomorrow.getDate()));
-      
-      try {
-        const [statsData, rosterData] = await Promise.all([
-          getDocs(teamStats),
-          //getDocs(teamRoster)
-        ]);
-
-        const data = {
-          stats: []
-          //roster: []
-        };
-
-        //rosterData.forEach(doc => data.roster.push(doc.data()));
-        statsData.forEach(doc => data.stats.push(doc.data()));
-
-        setData(data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-        setError("Error fetching NBA odds. Please try again later.");
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-*/
