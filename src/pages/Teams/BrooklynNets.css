@@ -1,0 +1,59 @@
+/* BrooklynNets.css */
+
+.nets-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(10, 10, 10);
+  padding: 10px;
+}
+
+.nets-logo {
+  max-width: 150px; /* Adjust the size as needed */
+  max-height: 150px; /* Adjust the size as needed */
+  margin-bottom: 10px; /* Add space between logo and team name */
+}
+
+.nets-name {
+  color: #fff; /* Add text color */
+  font-size: 60px; /* Adjust the size */
+  font-weight: bold; /* Bold the text */
+  margin: 0; /* Remove default margin */
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toggle-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #071824;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-buttons button:hover,
+.toggle-buttons button:active { /* Apply styles on hover and when clicked */
+  background-color:  #0c394b;
+  
+}
+
+/* Add animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.toggle-buttons button {
+  animation: fadeIn 0.5s ease;
+}
